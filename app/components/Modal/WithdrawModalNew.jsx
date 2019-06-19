@@ -331,7 +331,7 @@ class WithdrawModalNew extends React.Component {
         let isBTS = false;
         if (coreAsset) {
             if (selectedAsset == coreAsset.get("symbol")) isBTS = true;
-        } else if (selectedAsset == "BTS") {
+        } else if (selectedAsset == "PLC") {
             isBTS = true;
         }
 
@@ -565,7 +565,7 @@ class WithdrawModalNew extends React.Component {
 
         let stateObj = {};
 
-        if (value == "BTS") {
+        if (value == "PLC") {
             stateObj = {isBTS: true};
         }
 
@@ -658,13 +658,14 @@ class WithdrawModalNew extends React.Component {
     }
 
     updateGatewayFee() {
-        const { selectedGateway, selectedAsset } = this.state;
+        const {selectedGateway, selectedAsset} = this.state;
         let gateFee = 0;
 
         if (selectedGateway && selectedAsset) {
             this.props.backedCoins.get(selectedGateway).forEach(item => {
                 if (
-                    item.symbol === [selectedGateway, selectedAsset].join(".") ||
+                    item.symbol ===
+                        [selectedGateway, selectedAsset].join(".") ||
                     item.backingCoinType === selectedAsset
                 ) {
                     gateFee = item.gateFee || 0;
@@ -672,7 +673,7 @@ class WithdrawModalNew extends React.Component {
             });
         }
 
-        this.setState({ gateFee });
+        this.setState({gateFee});
     }
 
     validateAddress(address) {

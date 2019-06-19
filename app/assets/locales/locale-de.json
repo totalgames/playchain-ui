@@ -433,7 +433,7 @@
         "ws_status": "Websocket Verbindungsstatus"
     },
     "assets": {
-        "BTS": "BTS is the core token of the BitShares Blockchain"
+        "PLC": "PLC is the core token of the PlayChain Blockchain"
     },
     "boolean": {
         "false": "falsch",

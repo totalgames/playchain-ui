@@ -57,6 +57,9 @@ import {HtlcExtend} from "./HtlcExtend";
 import {HtlcRedeem} from "./HtlcRedeem";
 import {HtlcRedeemed} from "./HtlcRedeemed";
 import {HtlcRefund} from "./HtlcRefund";
+import {PlayerInvitationCreate} from "./PlayerInvitationCreate";
+import {GameStartPlayingCheck} from "./GameStartPlayingCheck";
+import {GameResultCheck} from "./GameResultCheck";
 
 export default function opComponents(opType, props, opts) {
     switch (opType) {
@@ -235,6 +238,15 @@ export default function opComponents(opType, props, opts) {
 
         case "htlc_refund":
             return <HtlcRefund {...props} {...opts} />;
+
+        case "player_invitation_create":
+            return <PlayerInvitationCreate {...props} {...opts} />;
+
+        case "game_start_playing_check":
+            return <GameStartPlayingCheck {...props} {...opts} />;
+
+        case "game_result_check":
+            return <GameResultCheck {...props} {...opts} />;
 
         default:
             return <DefaultOperation {...props} />;

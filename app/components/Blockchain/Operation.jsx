@@ -17,6 +17,41 @@ import PropTypes from "prop-types";
 import {Tooltip} from "bitshares-ui-style-guide";
 
 const {operations} = grapheneChainTypes;
+
+operations["bitshares_dump_operation_8"] = 54;
+operations["bitshares_dump_operation_9"] = 55;
+operations["player_invitation_create"] = 56;
+operations["player_invitation_resolve"] = 57;
+operations["player_invitation_cancel"] = 58;
+operations["player_invitation_expire"] = 59;
+operations["player_create"] = 60;
+operations["game_witness_create"] = 61;
+operations["room_create"] = 62;
+operations["room_update"] = 63;
+operations["table_create"] = 64;
+operations["table_update"] = 65;
+operations["buy_in_table"] = 66;
+operations["buy_out_table"] = 67;
+operations["game_start_playing_check"] = 68;
+operations["game_result_check"] = 69;
+operations["game_event"] = 70;
+operations["player_create_by_room_owner"] = 71;
+operations["game_reset"] = 72;
+operations["buy_in_reserve"] = 73;
+operations["buy_in_reserving_cancel"] = 74;
+operations["buy_in_reserving_resolve"] = 75;
+operations["buy_in_reserving_allocated_table"] = 76;
+operations["buy_in_reserving_expire"] = 77;
+operations["donate_to_playchain"] = 78;
+operations["buy_in_reserving_cancel_all"] = 79;
+operations["buy_in_expire"] = 80;
+operations["playchain_committee_member_create"] = 81;
+operations["playchain_committee_member_update"] = 82;
+operations["playchain_committee_member_update_parameters"] = 83;
+operations["playchain_deposit_cashback"] = 84;
+operations["tables_alive"] = 85;
+operations["playchain_committee_member_update_parameters_v2"] = 86;
+
 import opComponents from "./operations";
 require("./operations.scss");
 

@@ -433,7 +433,7 @@
         "ws_status": "Full node connection status"
     },
     "assets": {
-        "BTS": "BTS is the core token of the BitShares Blockchain"
+        "PLC": "PLC is the core token of the PlayChain Blockchain"
     },
     "boolean": {
         "false": "False",
@@ -1558,6 +1558,14 @@
         "htlc_redeem": "{redeemer} request to redeem from HTLC {htlc_id}",
         "htlc_redeemed": "{to} redeemed {amount} from HTLC {htlc_id} of {from}",
         "htlc_refund": "{to} got refund of HTLC {htlc_id}",
+        "player_invitation_create": "{inviter} create invitation",
+        "player_invitation_resolve": "{name} created by {inviter} invitation",
+        "player_invitation_cancel": "{inviter} cancel invitation",
+        "buy_in_reserve": "{player} reserve {amount} for buy in",
+        "buy_in_reserving_cancel": "{player} cancel buy in reserving",
+        "buy_in_reserving_resolve": "{table_owner} resolve buy in of {player}",
+        "game_start_playing_check": "{voter} start game attempt",
+        "game_result_check": "{voter} validate game result validation",
         "lifetime_upgrade_account": "{account} was upgraded to lifetime member",
         "limit_order_buy": "{account} placed order %(order)s to buy {amount} at {price}",
         "limit_order_cancel": "{account} cancelled order #%(order)s",
@@ -2238,6 +2246,14 @@
             "htlc_redeem": "HTLC redeem",
             "htlc_redeemed": "HTLC redeemed",
             "htlc_refund": "HTLC refund",
+            "player_invitation_create": "Player invitation",
+            "player_invitation_resolve": "Resolve player invitation",
+            "player_invitation_cancel": "Cancel player invitation",
+            "buy_in_reserve": "Buy in reserve",
+            "buy_in_reserving_cancel": "Cancel buy in reserving",
+            "buy_in_reserving_resolve": "Resolve buy in reserving",
+            "game_start_playing_check": "Game starting attempt",
+            "game_result_check": "Game result validation",
             "limit_order_cancel": "Cancel order",
             "limit_order_create": "Place order",
             "override_transfer": "Override transfer",
