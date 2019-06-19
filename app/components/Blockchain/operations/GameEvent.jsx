@@ -2,25 +2,26 @@ import React from "react";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 import MemoText from "../MemoText";
 
-export const GameResultCheck = ({op, changeColor}) => {
+export const GameEvent = ({op, changeColor}) => {
     changeColor("info"); // color of a label
 
-    let memoComponent = <MemoText memo={op[1].result} />;
+    let memoComponent = <MemoText memo={op[1].event} />;
+
+    // TODO
 
     return (
         <span className="right-td">
             <div className="inline-block">
                 <div>
                     <TranslateWithLinks
-                        string="operation.game_result_check"
+                        string="operation.game_event"
                         keys={[
                             {
-                                type: "account",
-                                value: op[1].voter,
-                                arg: "voter"
+                                value: op[1].table,
+                                arg: "table"
                             },
                             {
-                                type: "amount",
+                                type: "account",
                                 value: op[1].table_owner,
                                 arg: "table_owner"
                             }

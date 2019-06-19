@@ -1,8 +1,9 @@
 import React from "react";
+import Translate from "react-translate-component";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 import MemoText from "../MemoText";
 
-export const BuyInReserve = ({op, changeColor}) => {
+export const BuyInReservingAllocatedTable = ({op, changeColor}) => {
     changeColor("info"); // color of a label
     let memoComponent = null;
 
@@ -16,7 +17,7 @@ export const BuyInReserve = ({op, changeColor}) => {
             <div className="inline-block">
                 <div>
                     <TranslateWithLinks
-                        string="operation.buy_in_reserve"
+                        string="operation.buy_in_reserving_allocated_table"
                         keys={[
                             {
                                 type: "account",
@@ -29,8 +30,21 @@ export const BuyInReserve = ({op, changeColor}) => {
                                 arg: "amount"
                             },
                             {
-                                value: op[1].protocol_version,
-                                arg: "protocol_version"
+                                type: "account",
+                                value: op[1].table_owner,
+                                arg: "table_owner"
+                            },
+                            {
+                                value: op[1].table,
+                                arg: "table"
+                            },
+                            {
+                                value: op[1].table_weight,
+                                arg: "table_weight"
+                            },
+                            {
+                                value: op[1].room_rating,
+                                arg: "room_rating"
                             },
                             {
                                 value: op[1].uid,

@@ -1,8 +1,9 @@
 import React from "react";
+import Translate from "react-translate-component";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 import MemoText from "../MemoText";
 
-export const BuyInReserve = ({op, changeColor}) => {
+export const PlaychainDepositCashback = ({op, changeColor}) => {
     changeColor("info"); // color of a label
     let memoComponent = null;
 
@@ -16,12 +17,17 @@ export const BuyInReserve = ({op, changeColor}) => {
             <div className="inline-block">
                 <div>
                     <TranslateWithLinks
-                        string="operation.buy_in_reserve"
+                        string="operation.playchain_deposit_cashback"
                         keys={[
                             {
                                 type: "account",
-                                value: op[1].player,
-                                arg: "player"
+                                value: op[1].getter,
+                                arg: "getter"
+                            },
+                            {
+                                type: "account",
+                                value: op[1].recipient,
+                                arg: "recipient"
                             },
                             {
                                 type: "amount",
@@ -29,12 +35,8 @@ export const BuyInReserve = ({op, changeColor}) => {
                                 arg: "amount"
                             },
                             {
-                                value: op[1].protocol_version,
-                                arg: "protocol_version"
-                            },
-                            {
-                                value: op[1].uid,
-                                arg: "uid"
+                                value: op[1].deposit,
+                                arg: "deposit"
                             }
                         ]}
                     />

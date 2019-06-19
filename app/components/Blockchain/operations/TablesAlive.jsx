@@ -2,22 +2,22 @@ import React from "react";
 import Translate from "react-translate-component";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 
-export const PlayerInvitationCreate = ({op, changeColor}) => {
-    changeColor("success"); // color of a label
+export const TablesAlive = ({op, changeColor}) => {
+    changeColor("info"); // color of a label
 
     return (
         <span>
             <TranslateWithLinks
-                string="operation.player_invitation_create"
+                string="operation.tables_alive"
                 keys={[
                     {
                         type: "account",
-                        value: op[1].inviter,
-                        arg: "inviter"
+                        value: op[1].owner,
+                        arg: "owner"
                     },
                     {
-                        value: op[1].uid,
-                        arg: "uid"
+                        value: op[1].tables,
+                        arg: "tables"
                     }
                 ]}
             />

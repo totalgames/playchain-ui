@@ -2,13 +2,12 @@ import React from "react";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 import MemoText from "../MemoText";
 
-export const GameStartPlayingCheck = ({op, proposer, index, changeColor}) => {
-    changeColor("warning"); // color of a label
-    let memoComponent = null;
+export const GameStartPlayingCheck = ({op, changeColor}) => {
+    changeColor("info"); // color of a label
 
-    // if (op[1].initial_data) {
-    //     memoComponent = <MemoText memo={op[1].initial_data} />;
-    // }
+    let memoComponent = (memoComponent = (
+        <MemoText memo={op[1].initial_data} />
+    ));
 
     return (
         <span className="right-td">

@@ -1,22 +1,19 @@
 import React from "react";
+import Translate from "react-translate-component";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 
-export const BuyInReservingResolve = ({op, changeColor}) => {
-    changeColor("success"); // color of a label
+export const GameReset = ({op, changeColor}) => {
+    changeColor("warning"); // color of a label
 
     return (
         <span>
             <TranslateWithLinks
-                string="operation.buy_in_reserving_resolve"
+                string="operation.game_reset"
                 keys={[
                     {
                         type: "account",
                         value: op[1].table_owner,
                         arg: "table_owner"
-                    },
-                    {
-                        value: op[1].uid,
-                        arg: "uid"
                     },
                     {
                         value: op[1].table,

@@ -1547,7 +1547,674 @@ class Operation {
                         />
                     </span>
                 );
+                break;
+            case "player_invitation_create":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.player_invitation_create"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].inviter,
+                                    arg: "inviter"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "player_invitation_resolve":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.player_invitation_resolve"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].inviter,
+                                    arg: "inviter"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].name,
+                                    arg: "name"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "player_invitation_cancel":
+                color = "cancel";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.player_invitation_cancel"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].inviter,
+                                    arg: "inviter"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "player_invitation_expire":
+                color = "warning";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.player_invitation_expire"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].inviter,
+                                    arg: "inviter"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "player_create":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.player_create"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].inviter,
+                                    arg: "inviter"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].account,
+                                    arg: "account"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "game_witness_create":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.game_witness_create"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].new_witness,
+                                    arg: "new_witness"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "room_create":
+                color = "success";
+                if (op[1].metadata) {
+                    memoComponent = <MemoText memo={op[1].metadata} />;
+                }
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.room_create"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].owner,
+                                    arg: "owner"
+                                },
+                                {
+                                    value: op[1].server_url,
+                                    arg: "server_url"
+                                },
+                                {
+                                    value: op[1].protocol_version,
+                                    arg: "protocol_version"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "room_update":
+                color = "success";
+                if (op[1].metadata) {
+                    memoComponent = <MemoText memo={op[1].metadata} />;
+                }
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.room_update"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].owner,
+                                    arg: "owner"
+                                },
+                                {
+                                    value: op[1].room,
+                                    arg: "room"
+                                },
+                                {
+                                    value: op[1].server_url,
+                                    arg: "server_url"
+                                },
+                                {
+                                    value: op[1].protocol_version,
+                                    arg: "protocol_version"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "table_create":
+                color = "success";
+                if (op[1].metadata) {
+                    memoComponent = <MemoText memo={op[1].metadata} />;
+                }
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.table_create"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].owner,
+                                    arg: "owner"
+                                },
+                                {
+                                    value: op[1].room,
+                                    arg: "room"
+                                },
+                                {
+                                    value: op[1].required_witnesses,
+                                    arg: "required_witnesses"
+                                },
+                                {
+                                    value: op[1].min_accepted_proposal_asset,
+                                    arg: "min_accepted_proposal_asset"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "table_update":
+                color = "success";
+                if (op[1].metadata) {
+                    memoComponent = <MemoText memo={op[1].metadata} />;
+                }
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.table_update"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].owner,
+                                    arg: "owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                },
+                                {
+                                    value: op[1].required_witnesses,
+                                    arg: "required_witnesses"
+                                },
+                                {
+                                    value: op[1].min_accepted_proposal_asset,
+                                    arg: "min_accepted_proposal_asset"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "buy_in_table":
+                color = "success";
 
+                op[1].amount.amount = parseFloat(op[1].amount.amount);
+
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_table"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "buy_out_table":
+                color = "cancel";
+
+                op[1].amount.amount = parseFloat(op[1].amount.amount);
+
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_out_table"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                },
+                                {
+                                    value: op[1].reason,
+                                    arg: "reason"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "game_start_playing_check":
+                color = "info";
+                memoComponent = <MemoText memo={op[1].initial_data} />;
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.game_start_playing_check"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].voter,
+                                    arg: "voter"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "game_result_check":
+                color = "info";
+                memoComponent = <MemoText memo={op[1].result} />;
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.game_result_check"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].voter,
+                                    arg: "voter"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "game_event":
+                color = "info";
+                memoComponent = <MemoText memo={op[1].event} />;
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.game_event"
+                            keys={[
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "player_create_by_room_owner":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.player_create_by_room_owner"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].room_owner,
+                                    arg: "room_owner"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].account,
+                                    arg: "account"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "game_reset":
+                color = "warning";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.game_reset"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "buy_in_reserve":
+                color = "info";
+                if (op[1].metadata) {
+                    memoComponent = <MemoText memo={op[1].metadata} />;
+                }
+                op[1].amount.amount = parseFloat(op[1].amount.amount);
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_reserve"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                },
+                                {
+                                    value: op[1].protocol_version,
+                                    arg: "protocol_version"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "buy_in_reserving_cancel":
+                color = "cancel";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_reserving_cancel"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "buy_in_reserving_resolve":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_reserving_resolve"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "buy_in_reserving_allocated_table":
+                color = "info";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_reserving_allocated_table"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                },
+                                {
+                                    value: op[1].table_weight,
+                                    arg: "table_weight"
+                                },
+                                {
+                                    value: op[1].room_rating,
+                                    arg: "room_rating"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "buy_in_reserving_expire":
+                color = "info";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_reserving_expire"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                },
+                                {
+                                    value: op[1].uid,
+                                    arg: "uid"
+                                }
+                            ]}
+                        />
+                        {memoComponent}
+                    </span>
+                );
+                break;
+            case "donate_to_playchain":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.donate_to_playchain"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].donator,
+                                    arg: "donator"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "buy_in_reserving_cancel_all":
+                color = "cancel";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_reserving_cancel_all"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "buy_in_expire":
+                color = "cancel";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.buy_in_expire"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].player,
+                                    arg: "player"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].table_owner,
+                                    arg: "table_owner"
+                                },
+                                {
+                                    value: op[1].table,
+                                    arg: "table"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
                 break;
             default:
                 console.log("unimplemented op '" + ops[op[0]] + "':", op);

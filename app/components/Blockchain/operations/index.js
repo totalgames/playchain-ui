@@ -58,8 +58,36 @@ import {HtlcRedeem} from "./HtlcRedeem";
 import {HtlcRedeemed} from "./HtlcRedeemed";
 import {HtlcRefund} from "./HtlcRefund";
 import {PlayerInvitationCreate} from "./PlayerInvitationCreate";
+import {PlayerInvitationResolve} from "./PlayerInvitationResolve";
+import {PlayerInvitationCancel} from "./PlayerInvitationCancel";
+import {PlayerInvitationExpire} from "./PlayerInvitationExpire";
+import {PlayerCreate} from "./PlayerCreate";
+import {GameWitnessCreate} from "./GameWitnessCreate";
+import {RoomCreate} from "./RoomCreate";
+import {RoomUpdate} from "./RoomUpdate";
+import {TableCreate} from "./TableCreate";
+import {TableUpdate} from "./TableUpdate";
+import {BuyInTable} from "./BuyInTable";
+import {BuyOutTable} from "./BuyOutTable";
 import {GameStartPlayingCheck} from "./GameStartPlayingCheck";
 import {GameResultCheck} from "./GameResultCheck";
+import {GameEvent} from "./GameEvent";
+import {PlayerCreateByRoomOwner} from "./PlayerCreateByRoomOwner";
+import {GameReset} from "./GameReset";
+import {BuyInReserve} from "./BuyInReserve";
+import {BuyInReservingCancel} from "./BuyInReservingCancel";
+import {BuyInReservingResolve} from "./BuyInReservingResolve";
+import {BuyInReservingAllocatedTable} from "./BuyInReservingAllocatedTable";
+import {BuyInReservingExpire} from "./BuyInReservingExpire";
+import {DonateToPlaychain} from "./DonateToPlaychain";
+import {BuyInReservingCancelAll} from "./BuyInReservingCancelAll";
+import {BuyInExpire} from "./BuyInExpire";
+import {PlaychainCommitteeMemberCreate} from "./PlaychainCommitteeMemberCreate";
+import {PlaychainCommitteeMemberUpdate} from "./PlaychainCommitteeMemberUpdate";
+import {PlaychainCommitteeMemberUpdateParametersV1} from "./PlaychainCommitteeMemberUpdateParametersV1";
+import {PlaychainDepositCashback} from "./PlaychainDepositCashback";
+import {TablesAlive} from "./TablesAlive";
+import {PlaychainCommitteeMemberUpdateParametersV2} from "./PlaychainCommitteeMemberUpdateParametersV2";
 
 export default function opComponents(opType, props, opts) {
     switch (opType) {
@@ -242,11 +270,105 @@ export default function opComponents(opType, props, opts) {
         case "player_invitation_create":
             return <PlayerInvitationCreate {...props} {...opts} />;
 
+        case "player_invitation_resolve":
+            return <PlayerInvitationResolve {...props} {...opts} />;
+
+        case "player_invitation_cancel":
+            return <PlayerInvitationCancel {...props} {...opts} />;
+
+        case "player_invitation_expire":
+            return <PlayerInvitationExpire {...props} {...opts} />;
+
+        case "player_create":
+            return <PlayerCreate {...props} {...opts} />;
+
+        case "game_witness_create":
+            return <GameWitnessCreate {...props} {...opts} />;
+
+        case "room_create":
+            return <RoomCreate {...props} {...opts} />;
+
+        case "room_update":
+            return <RoomUpdate {...props} {...opts} />;
+
+        case "table_create":
+            return <TableCreate {...props} {...opts} />;
+
+        case "table_update":
+            return <TableUpdate {...props} {...opts} />;
+
+        case "buy_in_table":
+            return <BuyInTable {...props} {...opts} />;
+
+        case "buy_out_table":
+            return <BuyOutTable {...props} {...opts} />;
+
         case "game_start_playing_check":
             return <GameStartPlayingCheck {...props} {...opts} />;
 
         case "game_result_check":
             return <GameResultCheck {...props} {...opts} />;
+
+        case "game_event":
+            return <GameEvent {...props} {...opts} />;
+
+        case "player_create_by_room_owner":
+            return <PlayerCreateByRoomOwner {...props} {...opts} />;
+
+        case "game_reset":
+            return <GameReset {...props} {...opts} />;
+
+        case "buy_in_reserve":
+            return <BuyInReserve {...props} {...opts} />;
+
+        case "buy_in_reserving_cancel":
+            return <BuyInReservingCancel {...props} {...opts} />;
+
+        case "buy_in_reserving_resolve":
+            return <BuyInReservingResolve {...props} {...opts} />;
+
+        case "buy_in_reserving_allocated_table":
+            return <BuyInReservingAllocatedTable {...props} {...opts} />;
+
+        case "buy_in_reserving_expire":
+            return <BuyInReservingExpire {...props} {...opts} />;
+
+        case "donate_to_playchain":
+            return <DonateToPlaychain {...props} {...opts} />;
+
+        case "buy_in_reserving_cancel_all":
+            return <BuyInReservingCancelAll {...props} {...opts} />;
+
+        case "buy_in_expire":
+            return <BuyInExpire {...props} {...opts} />;
+
+        case "playchain_committee_member_create":
+            return <PlaychainCommitteeMemberCreate {...props} {...opts} />;
+
+        case "playchain_committee_member_update":
+            return <PlaychainCommitteeMemberCreate {...props} {...opts} />;
+
+        case "playchain_committee_member_update_parameters":
+            return (
+                <PlaychainCommitteeMemberUpdateParametersV1
+                    {...props}
+                    {...opts}
+                />
+            );
+
+        case "playchain_deposit_cashback":
+            return (
+                <PlaychainCommitteeMemberUpdateParametersV1
+                    {...props}
+                    {...opts}
+                />
+            );
+
+        case "tables_alive":
+            return <TablesAlive {...props} {...opts} />;
+
+        case "playchain_committee_member_update_parameters_v2":
+            return <TablesAlive {...props} {...opts} />;
 
         default:
             return <DefaultOperation {...props} />;

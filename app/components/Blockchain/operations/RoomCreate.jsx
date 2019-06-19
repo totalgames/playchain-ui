@@ -1,40 +1,36 @@
 import React from "react";
+import Translate from "react-translate-component";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 import MemoText from "../MemoText";
 
-export const BuyInReserve = ({op, changeColor}) => {
-    changeColor("info"); // color of a label
+export const RoomCreate = ({op, changeColor}) => {
+    changeColor("success"); // color of a label
+
     let memoComponent = null;
 
     if (op[1].metadata) {
         memoComponent = <MemoText memo={op[1].metadata} />;
     }
-    op[1].amount.amount = parseFloat(op[1].amount.amount);
 
     return (
         <span className="right-td">
             <div className="inline-block">
                 <div>
                     <TranslateWithLinks
-                        string="operation.buy_in_reserve"
+                        string="operation.room_create"
                         keys={[
                             {
                                 type: "account",
-                                value: op[1].player,
-                                arg: "player"
+                                value: op[1].owner,
+                                arg: "owner"
                             },
                             {
-                                type: "amount",
-                                value: op[1].amount,
-                                arg: "amount"
+                                value: op[1].server_url,
+                                arg: "server_url"
                             },
                             {
                                 value: op[1].protocol_version,
                                 arg: "protocol_version"
-                            },
-                            {
-                                value: op[1].uid,
-                                arg: "uid"
                             }
                         ]}
                     />

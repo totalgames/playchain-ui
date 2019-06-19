@@ -2,22 +2,18 @@ import React from "react";
 import Translate from "react-translate-component";
 import TranslateWithLinks from "../../Utility/TranslateWithLinks";
 
-export const PlayerInvitationCreate = ({op, changeColor}) => {
+export const DonateToPlaychain = ({op, changeColor}) => {
     changeColor("success"); // color of a label
 
     return (
         <span>
             <TranslateWithLinks
-                string="operation.player_invitation_create"
+                string="operation.donate_to_playchain"
                 keys={[
                     {
                         type: "account",
-                        value: op[1].inviter,
-                        arg: "inviter"
-                    },
-                    {
-                        value: op[1].uid,
-                        arg: "uid"
+                        value: op[1].donator,
+                        arg: "donator"
                     }
                 ]}
             />
