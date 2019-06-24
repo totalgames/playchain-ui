@@ -492,7 +492,7 @@ class AccountPermissions extends React.Component {
                                 />
                             </Tab>
 
-                            <Tab title="account.perm.password_model">
+                            {/* <Tab title="account.perm.password_model">
                                 <AccountPermissionsMigrate
                                     active={this.state.password_active}
                                     owner={this.state.password_owner}
@@ -522,7 +522,7 @@ class AccountPermissions extends React.Component {
                                     )}
                                     onSetMemo={this.onMemoKeyChanged.bind(this)}
                                 />
-                            </Tab>
+                            </Tab> */}
                         </Tabs>
 
                         <div className="tab-content" style={{padding: 10}}>

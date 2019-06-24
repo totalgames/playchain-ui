@@ -29,6 +29,7 @@ import {withRouter} from "react-router-dom";
 import {Notification} from "bitshares-ui-style-guide";
 import AccountBrowsingMode from "../Account/AccountBrowsingMode";
 import {setLocalStorageType, isPersistantType} from "lib/common/localStorage";
+import chainIds from "chain/chainIds";
 
 import {getLogo} from "branding";
 var logo = getLogo();
@@ -342,6 +343,8 @@ class Header extends React.Component {
         let tradingAccounts = AccountStore.getMyAccounts();
         let maxHeight = Math.max(40, height - 67 - 36) + "px";
 
+        console.log(">> ChainStore: ", ChainStore);
+
         const a = ChainStore.getAccount(currentAccount);
         const showAccountLinks = !!a;
         const isMyAccount = !a
@@ -352,7 +355,7 @@ class Header extends React.Component {
             !!a &&
             Apis.instance() &&
             Apis.instance().chain_id &&
-            Apis.instance().chain_id.substr(0, 8) === "4018d784";
+            Apis.instance().chain_id.substr(0, 8) === chainIds.MAIN_NET_ID;
 
         if (starredAccounts.size) {
             for (let i = tradingAccounts.length - 1; i >= 0; i--) {
@@ -1078,7 +1081,7 @@ class Header extends React.Component {
                                     </Link>
                                 </li>
                             )}
-                            <li>
+                            {/* <li>
                                 <a
                                     style={{flexFlow: "row"}}
                                     className={cnames(
@@ -1111,7 +1114,7 @@ class Header extends React.Component {
                                         content="header.exchange"
                                     />
                                 </a>
-                            </li>
+                            </li> */}
                             <li>
                                 <a
                                     style={{flexFlow: "row"}}

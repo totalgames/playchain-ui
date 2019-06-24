@@ -114,9 +114,9 @@ class LoginSelector extends React.Component {
             <div className="grid-block align-center" id="accountForm">
                 <div className="grid-block shrink vertical">
                     <div className="grid-content shrink text-center account-creation">
-                        <div>
+                        {/* <div>
                             <img src={logo} />
-                        </div>
+                        </div> */}
 
                         <div>
                             <Translate

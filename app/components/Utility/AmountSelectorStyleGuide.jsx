@@ -57,6 +57,8 @@ class AmountSelector extends DecimalChecker {
     }
 
     render() {
+        console.log(">> AmountSelector render");
+
         let value = this.props.error
             ? counterpart.translate(this.props.error)
             : this.formatAmount(this.props.amount);
@@ -103,7 +105,7 @@ class AmountSelector extends DecimalChecker {
                         addonAfter={addonAfter}
                     />
 
-                    {!this.props.isPrice ? (
+                    {/* {!this.props.isPrice ? (
                         <AssetSelect
                             style={{width: "130px"}}
                             selectStyle={{width: "100%"}}
@@ -114,7 +116,7 @@ class AmountSelector extends DecimalChecker {
                                 this.props.selectDisabled ? true : undefined
                             }
                         />
-                    ) : null}
+                    ) : null} */}
                 </Input.Group>
             </Form.Item>
         );

@@ -80,7 +80,7 @@ class NewsHeadline extends React.Component {
                         );
                         if (!!notification.main) {
                             notification = notification.main.split(
-                                "This asset is used to display notifications for the BitShares UI"
+                                "This asset is used to display notifications for the PlayChain UI"
                             );
                             if (notification.length > 1 && !!notification[1]) {
                                 notificationList.push(

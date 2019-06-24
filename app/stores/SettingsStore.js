@@ -12,6 +12,7 @@ import {
     getMyMarketsQuotes,
     getUnits
 } from "branding";
+import chainIds from "chain/chainIds";
 
 const CORE_ASSET = "PLC"; // Setting this to PLC to prevent loading issues when used with PLC chain which is the most usual case currently
 
@@ -147,7 +148,7 @@ class SettingsStore {
             showAssetPercent: [{translate: "yes"}, {translate: "no"}],
             themes: ["darkTheme", "lightTheme", "midnightTheme"],
             passwordLogin: [
-                {translate: "cloud_login"},
+                // {translate: "cloud_login"},
                 {translate: "local_wallet"}
             ],
             browser_notifications: {
@@ -440,8 +441,8 @@ class SettingsStore {
             };
 
             let coreAssets = {
-                markets_4018d784: "PLC",
-                markets_39f5e2ed: "TEST"
+                markets_76b51e5c: "PLC",
+                markets_b611bac1: "TEST"
             };
             let coreAsset = coreAssets[this.starredKey] || "PLC";
             /*
@@ -671,7 +672,7 @@ class SettingsStore {
     }
 
     _getChainId() {
-        return (Apis.instance().chain_id || "4018d784").substr(0, 8);
+        return (Apis.instance().chain_id || chainIds.MAIN_NET_ID).substr(0, 8);
     }
 
     _getChainKey(key) {

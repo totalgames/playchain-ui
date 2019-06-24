@@ -70,6 +70,7 @@ function AssetWrapper(Component, options = {}) {
         static defaultProps = defaultProps;
 
         render() {
+            // console.log(">> options: ", options);
             let finalAssets = {};
             let passTroughProps = {};
             let dos = List();

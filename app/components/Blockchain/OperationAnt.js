@@ -2216,6 +2216,138 @@ class Operation {
                     </span>
                 );
                 break;
+            case "playchain_committee_member_create":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.playchain_committee_member_create"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].committee_member_account,
+                                    arg: "committee_member_account"
+                                },
+                                {
+                                    value: op[1].url,
+                                    arg: "url"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "playchain_committee_member_update":
+                color = "success";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.playchain_committee_member_update"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].committee_member_account,
+                                    arg: "committee_member_account"
+                                },
+                                {
+                                    value: op[1].committee_member,
+                                    arg: "committee_member"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "playchain_committee_member_update_parameters":
+                color = "info";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.playchain_committee_member_update_parameters"
+                            keys={[
+                                {
+                                    value: op[1].new_parameters,
+                                    arg: "new_parameters"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "playchain_deposit_cashback":
+                color = "info";
+                let memoComponent = null;
+
+                if (op[1].metadata) {
+                    memoComponent = <MemoText memo={op[1].metadata} />;
+                }
+                op[1].amount.amount = parseFloat(op[1].amount.amount);
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.playchain_deposit_cashback"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].getter,
+                                    arg: "getter"
+                                },
+                                {
+                                    type: "account",
+                                    value: op[1].recipient,
+                                    arg: "recipient"
+                                },
+                                {
+                                    type: "amount",
+                                    value: op[1].amount,
+                                    arg: "amount"
+                                },
+                                {
+                                    value: op[1].deposit,
+                                    arg: "deposit"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "tables_alive":
+                color = "info";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.tables_alive"
+                            keys={[
+                                {
+                                    type: "account",
+                                    value: op[1].owner,
+                                    arg: "owner"
+                                },
+                                {
+                                    value: op[1].tables,
+                                    arg: "tables"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
+            case "playchain_committee_member_update_parameters_v2":
+                color = "info";
+                column = (
+                    <span className="right-td">
+                        <TranslateWithLinks
+                            string="operation.playchain_committee_member_update_parameters_v2"
+                            keys={[
+                                {
+                                    value: op[1].new_parameters,
+                                    arg: "new_parameters"
+                                }
+                            ]}
+                        />
+                    </span>
+                );
+                break;
             default:
                 console.log("unimplemented op '" + ops[op[0]] + "':", op);
                 column = (

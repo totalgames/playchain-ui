@@ -25,6 +25,8 @@ class AssetSelector extends React.Component {
     }
 
     render() {
+        console.log(">> AssetSelector render");
+
         if (!this.props.assets.length) return null;
 
         return (
@@ -102,6 +104,8 @@ class AmountSelector extends DecimalChecker {
     }
 
     render() {
+        console.log(">> AmountSelector render");
+
         //console.log("Calling AmountSelector: " + this.props.label + this.props.asset + this.props.assets + this.props.amount + this.props.placeholder + this.props.error);
         let value = this.props.error
             ? counterpart.translate(this.props.error)

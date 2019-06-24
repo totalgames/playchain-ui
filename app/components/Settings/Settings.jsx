@@ -150,7 +150,7 @@ class Settings extends React.Component {
         if (!props.settings.get("passwordLogin")) menuEntries.push("restore");
         menuEntries.push("access");
 
-        if (getFaucet().show) menuEntries.push("faucet_address");
+        // if (getFaucet().show) menuEntries.push("faucet_address");
 
         menuEntries.push("reset");
 
@@ -243,7 +243,7 @@ class Settings extends React.Component {
 
             case "inverseMarket":
             case "confirmMarketOrder":
-                value = findEntry(e.target.value, defaults[setting]) === 0; // USD/BTS is true, BTS/USD is false
+                value = findEntry(e.target.value, defaults[setting]) === 0; // USD/PLC is true, PLC/USD is false
                 break;
 
             case "apiServer":
@@ -345,23 +345,23 @@ class Settings extends React.Component {
                     />
                 );
                 break;
-            case "faucet_address":
-                entries = (
-                    <Input
-                        disabled={!getFaucet().editable}
-                        type="text"
-                        defaultValue={settings.get("faucet_address")}
-                        onChange={
-                            getFaucet().editable
-                                ? this._onChangeSetting.bind(
-                                      this,
-                                      "faucet_address"
-                                  )
-                                : null
-                        }
-                    />
-                );
-                break;
+            // case "faucet_address":
+            //     entries = (
+            //         <Input
+            //             disabled={!getFaucet().editable}
+            //             type="text"
+            //             defaultValue={settings.get("faucet_address")}
+            //             onChange={
+            //                 getFaucet().editable
+            //                     ? this._onChangeSetting.bind(
+            //                           this,
+            //                           "faucet_address"
+            //                       )
+            //                     : null
+            //             }
+            //         />
+            //     );
+            //     break;
 
             case "reset":
                 entries = <ResetSettings />;

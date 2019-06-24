@@ -286,6 +286,7 @@ class App extends React.Component {
                 this.setState({incognito});
             }.bind(this)
         );
+        // this.setState({incognito: true});
         updateGatewayBackers();
     }
 
@@ -385,11 +386,17 @@ class App extends React.Component {
                     : "committee-account";
             content = (
                 <div className="grid-frame vertical">
-                    <NewsHeadline />
+                    {/* <NewsHeadline /> */}
                     <Header height={this.state.height} {...others} />
                     <div id="mainContainer" className="grid-block">
                         <div className="grid-block vertical">
                             <Switch>
+                                {/* <Redirect
+                                    path={"/"}
+                                    to={{
+                                        pathname: `/explorer`
+                                    }}
+                                /> */}
                                 <Route
                                     path="/"
                                     exact

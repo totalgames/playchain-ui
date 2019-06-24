@@ -41,13 +41,13 @@ export default function AccountHeaderSelection(props) {
                         !props.active ? "inactive-title inactive-text" : ""
                     }`}
                 />
-                <Translate
+                {/* <Translate
                     content="wallet.password_model"
                     component="p"
                     className={`choice-model choice-account ${
                         !props.active ? "inactive-text" : ""
                     }`}
-                />
+                /> */}
                 {!props.forSmall ? (
                     <Tooltip
                         title={

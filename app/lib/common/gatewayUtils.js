@@ -2,6 +2,7 @@ import {Apis} from "bitsharesjs-ws";
 import GatewayActions from "actions/GatewayActions";
 import availableGateways, {gatewayPrefixes} from "common/gateways";
 import counterpart from "counterpart";
+import chainIds from "chain/chainIds";
 
 export function getGatewayName(asset) {
     if (asset.get("issuer") === "1.2.0") {
@@ -93,7 +94,7 @@ export function getAssetAndGateway(symbol) {
     return {selectedGateway, selectedAsset};
 }
 
-export function updateGatewayBackers(chain = "4018d784") {
+export function updateGatewayBackers(chain = chainIds.MAIN_NET_ID) {
     // Only fetch this when on desired chain, default to main chain
     if (!Apis.instance().chain_id) return;
     if (Apis.instance().chain_id.substr(0, 8) === chain) {

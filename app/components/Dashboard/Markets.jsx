@@ -7,6 +7,7 @@ import SettingsStore from "stores/SettingsStore";
 // import SettingsActions from "actions/SettingsActions";
 import MarketsStore from "stores/MarketsStore";
 import MarketsTable from "./MarketsTable";
+import chainIds from "chain/chainIds";
 
 class StarredMarkets extends React.Component {
     render() {
@@ -52,7 +53,7 @@ class FeaturedMarkets extends React.Component {
     _getMarkets(state = this.state, props = this.props) {
         const {chainID} = state;
 
-        if (chainID === "4018d784") {
+        if (chainID === chainIds.MAIN_NET_ID) {
             return props.markets;
         } else {
             // assume testnet

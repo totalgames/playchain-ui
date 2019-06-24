@@ -8,7 +8,10 @@ var fs = require("fs");
 const perf_dev = process.argv[2] === "perf-dev";
 
 var ProgressPlugin = require("webpack/lib/ProgressPlugin");
-var config = require("./webpack.config.js")({prod: false, perf_dev});
+var config = require("./webpack.config.js")({
+    prod: process.env.NODE_ENV === "production",
+    perf_dev
+});
 
 var app = express();
 var compiler = webpack(config);

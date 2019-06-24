@@ -1,4 +1,8 @@
-import {getFaucet} from "../branding";
+import {
+    initDefaultBlockchainAPI,
+    getDefaultBlockchainAPI,
+    getFaucet
+} from "../branding";
 
 export const blockTradesAPIs = {
     BASE: "https://api.blocktrades.us/v2",
@@ -91,18 +95,16 @@ export const nodeRegions = [
     "Southeastern Asia"
 ];
 
+initDefaultBlockchainAPI();
+
 export const settingsAPIs = {
     // If you want a location to be translated, add the translation to settings in locale-xx.js
     // and use an object {translate: key} in WS_NODE_LIST
-    DEFAULT_WS_NODE: "ws://playchain.prod.totalpoker.io:8500",
+    DEFAULT_WS_NODE: getDefaultBlockchainAPI().url,
     WS_NODE_LIST: [
         {
-            url: "ws://playchain.prod.totalpoker.io:8500",
-            location: "Default"
-        },
-        {
-            url: "ws://playchain.stage.totalpoker.io:8500",
-            location: "Default (TESTNET)"
+            url: getDefaultBlockchainAPI().url,
+            location: getDefaultBlockchainAPI().location
         }
     ],
     ES_WRAPPER_LIST: [

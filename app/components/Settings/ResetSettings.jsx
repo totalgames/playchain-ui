@@ -44,12 +44,11 @@ export default class ResetSettings extends React.Component {
                             generalName: counterpart.translate(
                                 "settings.general"
                             ),
-                            accessName: counterpart.translate(
-                                "settings.access"
-                            ),
-                            faucetName: counterpart.translate(
-                                "settings.faucet_address"
-                            )
+                            accessName: counterpart.translate("settings.access")
+                            // ,
+                            // faucetName: counterpart.translate(
+                            //     "settings.faucet_address"
+                            // )
                         }}
                     />
                 </header>

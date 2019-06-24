@@ -1,4 +1,5 @@
-import {Apis} from "bitsharesjs-ws";
+import {Apis, ChainConfig} from "bitsharesjs-ws";
+import chainIds from "chain/chainIds";
 
 /** This file centralized customization and branding efforts throughout the whole wallet and is meant to facilitate
  *  the process.
@@ -11,13 +12,10 @@ import {Apis} from "bitsharesjs-ws";
  * @private
  */
 function _isTestnet() {
-    const chainId = (Apis.instance().chain_id || "76b51e5c").substr(0, 8);
-    if (chainId === "76b51e5c") {
-        return false;
-    } else {
-        // treat every other chain as testnet, exact would be chainId === "b611bac1"
-        return true;
-    }
+    const api = getDefaultBlockchainAPI();
+
+    let r = api.short_chain_id === chainIds.MAIN_NET_ID;
+    return !r;
 }
 
 /**
@@ -25,7 +23,7 @@ function _isTestnet() {
  * @returns {string}
  */
 export function getWalletName() {
-    return "BitShares";
+    return "PlayChain";
 }
 
 /**
@@ -54,7 +52,7 @@ export function getFaucet() {
  * @returns {*}
  */
 export function getLogo() {
-    return require("assets/logo-ico-blue.png");
+    return require("assets/fresh-bolt2.png");
 }
 
 /**
@@ -393,5 +391,70 @@ export function getHeadFeedAsset() {
         return ["NOTIFICATIONS"];
     } else {
         return ["TEST"];
+    }
+}
+
+/**
+ * Setup default API and symbol
+ */
+export function initDefaultBlockchainAPI() {
+    console.log(">> ENV: ", process.env);
+
+    const plc_id = "PLC";
+    const api = getDefaultBlockchainAPI();
+
+    console.log(">> ChainConfig: ", ChainConfig);
+
+    let playchain_config_found = Object.entries(ChainConfig.networks).find(
+        ([network_name, network]) => {
+            if (network.core_asset === plc_id) {
+                return true;
+            }
+        }
+    );
+
+    if (!playchain_config_found) {
+        ChainConfig.networks = {
+            PlayChain: {
+                core_asset: plc_id,
+                address_prefix: plc_id,
+                chain_id: api.chain_id
+            }
+        };
+        ChainConfig.address_prefix = plc_id;
+        ChainConfig.core_asset = plc_id;
+
+        console.log(">> New ChainConfig: ", ChainConfig);
+    }
+
+    console.log(
+        ">> Apis.instance().chain_id: ",
+        Apis.instance(api.url).chain_id
+    );
+}
+
+export function getDefaultBlockchainAPI() {
+    if (process.env.NODE_ENV === "production") {
+        let url_ = "ws://playchain.prod.totalpoker.io:8500";
+        if (process.env.PLC_MAINNET_URL) {
+            url_ = process.env.PLC_MAINNET_URL;
+        }
+        return {
+            url: url_,
+            location: "MAINNET",
+            chain_id: chainIds.MAIN_NET,
+            short_chain_id: chainIds.MAIN_NET_ID
+        };
+    } else {
+        let url_ = "ws://playchain.stage.totalpoker.io:8500";
+        if (process.env.PLC_TESTNET_URL) {
+            url_ = process.env.PLC_TESTNET_URL;
+        }
+        return {
+            url: url_,
+            location: "TESTNET",
+            chain_id: chainIds.TEST_NET,
+            short_chain_id: chainIds.TEST_NET_ID
+        };
     }
 }

@@ -9,13 +9,14 @@ RUN apt-get update \
 
 RUN npm install -g cross-env
 
-# We copy the code from the docker-compose-yml
-# RUN git clone https://github.com/bitshares/bitshares-ui.git /bitshares-ui
-CMD mkdir /bitshares-ui
-WORKDIR /bitshares-ui
+# We copy the code
+ADD . /playchain-ui
+WORKDIR /playchain-ui
 
-ADD package.json .
-RUN cross-env npm install --env.prod
+# !!! There are some version errors in package
+# Required npm install on host machine before (Ubuntu 18.04)
+# RUN rm -rf node_modules \
+#   && cross-env npm install --env.prod
 
 EXPOSE 80
 

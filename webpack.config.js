@@ -12,6 +12,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 * For staging builds, set the version to the latest commit hash, for
 * production set it to the package version
 */
+
 let branch = !!process.env.BRANCH ? process.env.BRANCH : git.branch();
 var __VERSION__ =
     branch === "develop" ? git.short() : require("./package.json").version;
@@ -70,7 +71,7 @@ module.exports = function(env) {
         new HtmlWebpackPlugin({
             template: "!!handlebars-loader!app/assets/index.hbs",
             templateParameters: {
-                title: "BitShares " + __VERSION__,
+                title: "PlayChain " + __VERSION__,
                 INCLUDE_BASE: !!env.prod && !env.hash,
                 PRODUCTION: !!env.prod,
                 ELECTRON: !!env.electron
@@ -147,6 +148,7 @@ module.exports = function(env) {
         plugins.push(new Clean(cleanDirectories, {root: root_dir}));
         plugins.push(
             new webpack.DefinePlugin({
+                "process.env": {NODE_ENV: JSON.stringify("production")},
                 __DEV__: false
             })
         );

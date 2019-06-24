@@ -149,6 +149,8 @@ class AssetSelector extends React.Component {
     }
 
     render() {
+        console.log(">> AssetSelector render");
+
         let {disabled, noLabel} = this.props;
         let error = this.getError();
         let lookup_display;

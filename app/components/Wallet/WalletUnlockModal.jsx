@@ -551,124 +551,77 @@ class WalletUnlockModal extends React.Component {
                 zIndex={1001} // always on top
             >
                 <Form className="full-width" layout="vertical">
-                    <LoginTypeSelector />
-                    {passwordLogin ? (
-                        <div>
-                            <DisableChromeAutocomplete />
-                            <AccountSelector
-                                label="account.name"
-                                inputRef={this.account_input} // needed for ref forwarding to Input
-                                accountName={accountName}
-                                account={accountName}
-                                onChange={this.handleAccountNameChange}
-                                onAccountChanged={() => {}}
-                                size={60}
-                                hideImage
-                                placeholder=" "
-                                useHR
-                                labelClass="login-label"
-                                reserveErrorSpace
-                            />
-
-                            <Form.Item
-                                label={counterpart.translate(
-                                    "settings.password"
-                                )}
-                                validateStatus={passwordError ? "error" : ""}
-                                help={passwordError || ""}
-                            >
-                                <Input
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={this.handlePasswordChange}
-                                    onPressEnter={this.handleLogin}
-                                    ref={input => {
-                                        this.password_input = input;
-                                    }}
-                                />
-                            </Form.Item>
-                        </div>
-                    ) : (
-                        <div>
-                            <div
-                                className={
-                                    "key-file-selector " +
-                                    (restoringBackup && !walletSelected
-                                        ? "restoring"
-                                        : "")
+                    {/* <LoginTypeSelector /> */}
+                    <div>
+                        <div
+                            className={
+                                "key-file-selector " +
+                                (restoringBackup && !walletSelected
+                                    ? "restoring"
+                                    : "")
+                            }
+                        >
+                            <KeyFileLabel
+                                showUseOtherWalletLink={
+                                    restoringBackup && !backup.name
                                 }
-                            >
-                                <KeyFileLabel
-                                    showUseOtherWalletLink={
-                                        restoringBackup && !backup.name
-                                    }
+                                onUseOtherWallet={this.handleUseOtherWallet}
+                            />
+                            <hr />
+                            {walletSelected ? (
+                                <WalletDisplay
+                                    name={walletDisplayName}
                                     onUseOtherWallet={this.handleUseOtherWallet}
                                 />
-                                <hr />
-                                {walletSelected ? (
-                                    <WalletDisplay
-                                        name={walletDisplayName}
-                                        onUseOtherWallet={
-                                            this.handleUseOtherWallet
-                                        }
-                                    />
-                                ) : (
-                                    <div>
-                                        {restoringBackup || noWalletNames ? (
-                                            <BackupFileSelector
-                                                onFileChosen={this.loadBackup}
-                                                onRestoreOther={
-                                                    this.handleRestoreOther
-                                                }
-                                            />
-                                        ) : (
-                                            <WalletSelector
-                                                onFileChosen={this.loadBackup}
-                                                restoringBackup={
-                                                    restoringBackup
-                                                }
-                                                walletNames={walletNames}
-                                                onWalletChange={
-                                                    this
-                                                        .handleSelectedWalletChange
-                                                }
-                                            />
-                                        )}
-                                        {noLocalWallet && (
-                                            <CreateLocalWalletLink
-                                                onCreate={
-                                                    this.handleCreateWallet
-                                                }
-                                            />
-                                        )}
-                                    </div>
-                                )}
-                            </div>
+                            ) : (
+                                <div>
+                                    {restoringBackup || noWalletNames ? (
+                                        <BackupFileSelector
+                                            onFileChosen={this.loadBackup}
+                                            onRestoreOther={
+                                                this.handleRestoreOther
+                                            }
+                                        />
+                                    ) : (
+                                        <WalletSelector
+                                            onFileChosen={this.loadBackup}
+                                            restoringBackup={restoringBackup}
+                                            walletNames={walletNames}
+                                            onWalletChange={
+                                                this.handleSelectedWalletChange
+                                            }
+                                        />
+                                    )}
+                                    {noLocalWallet && (
+                                        <CreateLocalWalletLink
+                                            onCreate={this.handleCreateWallet}
+                                        />
+                                    )}
+                                </div>
+                            )}
+                        </div>
 
-                            <Form.Item
-                                label={counterpart.translate(
+                        <Form.Item
+                            label={counterpart.translate(
+                                "wallet.enter_password"
+                            )}
+                            validateStatus={errorMessage ? "error" : "success"}
+                            help={errorMessage}
+                        >
+                            <Input
+                                type="password"
+                                value={this.state.password}
+                                placeholder={counterpart.translate(
                                     "wallet.enter_password"
                                 )}
-                                validateStatus={
-                                    errorMessage ? "error" : "success"
-                                }
-                                help={errorMessage}
-                            >
-                                <Input
-                                    type="password"
-                                    value={this.state.password}
-                                    placeholder={counterpart.translate(
-                                        "wallet.enter_password"
-                                    )}
-                                    onChange={this.handlePasswordChange}
-                                    onPressEnter={this.handleLogin}
-                                    ref={input => {
-                                        this.password_input2 = input;
-                                    }}
-                                />
-                            </Form.Item>
-                        </div>
-                    )}
+                                onChange={this.handlePasswordChange}
+                                onPressEnter={this.handleLogin}
+                                ref={input => {
+                                    this.password_input2 = input;
+                                }}
+                            />
+                        </Form.Item>
+                    </div>
 
                     {this.shouldShowBackupWarning() && (
                         <BackupWarning
