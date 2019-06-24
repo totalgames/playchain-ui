@@ -381,7 +381,10 @@ class Footer extends React.Component {
         }
 
         let block_height = this.props.dynGlobalObject.get("head_block_number");
-        let version_match = APP_VERSION.match(/2\.0\.(\d\w+)/);
+
+        console.log(">> APP_VERSION: ", APP_VERSION);
+
+        let version_match = APP_VERSION.match(/1\.0\.(\d\w+)/);
         let version = version_match
             ? `.${version_match[1]}`
             : ` ${APP_VERSION}`;
@@ -670,7 +673,7 @@ class Footer extends React.Component {
                                             <Translate content="modal.report.button" />
                                         </div>
                                     </Tooltip> */}
-                                    <Tooltip
+                                    {/* <Tooltip
                                         title={counterpart.translate(
                                             "tooltip.self_help"
                                         )}
@@ -685,7 +688,7 @@ class Footer extends React.Component {
                                         >
                                             <Translate content="global.help" />
                                         </div>
-                                    </Tooltip>
+                                    </Tooltip> */}
                                 </div>
                             </div>
                         ) : (
@@ -711,9 +714,12 @@ class Footer extends React.Component {
                         popup={true}
                     />
                     <div style={{paddingTop: 15}}>
-                        <a onClick={this.onAccess.bind(this)}>
+                        {
+                            <a />
+                            /* <a onClick={this.onAccess.bind(this)}>
                             <Translate content="footer.advanced_settings" />
-                        </a>
+                        </a> */
+                        }
                     </div>
                 </div>
                 <div

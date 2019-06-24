@@ -363,7 +363,8 @@ class AccountPortfolioList extends React.Component {
             // Precision of 5, 1 = 10^5
             return (
                 <span>
-                    <a
+                    <a />
+                    {/* <a
                         onClick={this._showDepositWithdraw.bind(
                             this,
                             "bridge_modal",
@@ -378,7 +379,7 @@ class AccountPortfolioList extends React.Component {
                             duration={1000}
                             className="icon-14px"
                         />
-                    </a>
+                    </a> */}
                 </span>
             );
         } else {
@@ -391,7 +392,8 @@ class AccountPortfolioList extends React.Component {
 
             let linkElement = (
                 <span>
-                    <Icon
+                    <a />
+                    {/* <Icon
                         style={{
                             cursor: this.props.isMyAccount ? "pointer" : "help"
                         }}
@@ -399,7 +401,7 @@ class AccountPortfolioList extends React.Component {
                         title="icons.dollar.buy"
                         className="icon-14px"
                         onClick={this.props.isMyAccount ? modalAction : null}
-                    />
+                    /> */}
                 </span>
             );
 
@@ -435,7 +437,8 @@ class AccountPortfolioList extends React.Component {
 
         let linkElement = (
             <span>
-                <Icon
+                <a />
+                {/* <Icon
                     style={{
                         cursor: this.props.isMyAccount ? "pointer" : "help"
                     }}
@@ -443,7 +446,7 @@ class AccountPortfolioList extends React.Component {
                     title={actionTitle}
                     className="icon-14x"
                     onClick={this.props.isMyAccount ? modalAction : null}
-                />
+                /> */}
             </span>
         );
 
@@ -749,29 +752,29 @@ class AccountPortfolioList extends React.Component {
 
             return {
                 isBitAsset,
-                borrowLink:
-                    !isBitAsset || isGlobalSettled ? null : (
-                        <a
-                            onClick={() => {
-                                ReactTooltip.hide();
-                                this.showBorrowModal(
-                                    asset.get("id"),
-                                    asset.getIn([
-                                        "bitasset",
-                                        "options",
-                                        "short_backing_asset"
-                                    ]),
-                                    account
-                                );
-                            }}
-                        >
-                            <Icon
-                                name="dollar"
-                                title="icons.dollar.borrow"
-                                className="icon-14px"
-                            />
-                        </a>
-                    )
+                borrowLink: <a />
+                // !isBitAsset || isGlobalSettled ? null : (
+                //     <a
+                //         onClick={() => {
+                //             ReactTooltip.hide();
+                //             this.showBorrowModal(
+                //                 asset.get("id"),
+                //                 asset.getIn([
+                //                     "bitasset",
+                //                     "options",
+                //                     "short_backing_asset"
+                //                 ]),
+                //                 account
+                //             );
+                //         }}
+                //     >
+                //         <Icon
+                //             name="dollar"
+                //             title="icons.dollar.borrow"
+                //             className="icon-14px"
+                //         />
+                //     </a>
+                // )
             };
         };
 
@@ -822,13 +825,14 @@ class AccountPortfolioList extends React.Component {
                 emptyCell
             );
             transferLink = (
-                <a onClick={this.triggerSend.bind(this, asset.get("id"))}>
-                    <Icon
-                        name="transfer"
-                        title="icons.transfer"
-                        className="icon-14px"
-                    />
-                </a>
+                <a />
+                // <a onClick={this.triggerSend.bind(this, asset.get("id"))}>
+                //     <Icon
+                //         name="transfer"
+                //         title="icons.transfer"
+                //         className="icon-14px"
+                //     />
+                // </a>
             );
 
             let {isBitAsset, borrowLink} = renderBorrow(
@@ -838,13 +842,14 @@ class AccountPortfolioList extends React.Component {
 
             /* Popover content */
             settleLink = (
-                <a onClick={this._onSettleAsset.bind(this, asset.get("id"))}>
-                    <Icon
-                        name="settle"
-                        title="icons.settle"
-                        className="icon-14px"
-                    />
-                </a>
+                <a />
+                // <a onClick={this._onSettleAsset.bind(this, asset.get("id"))}>
+                //     <Icon
+                //         name="settle"
+                //         title="icons.settle"
+                //         className="icon-14px"
+                //     />
+                // </a>
             );
 
             const includeAsset = !hiddenAssets.includes(asset_type);
@@ -1030,47 +1035,49 @@ class AccountPortfolioList extends React.Component {
                         emptyCell
                     ),
                 burn: !isBitAsset ? (
-                    <a
-                        style={{marginRight: 0}}
-                        onClick={this._burnAsset.bind(this, asset.get("id"))}
-                    >
-                        <Icon name="fire" className="icon-14px" />
-                    </a>
-                ) : null,
+                    <a />
+                ) : // <a
+                //     style={{marginRight: 0}}
+                //     onClick={this._burnAsset.bind(this, asset.get("id"))}
+                // >
+                //     <Icon name="fire" className="icon-14px" />
+                // </a>
+                null,
                 hide: (
-                    <Tooltip
-                        placement="bottom"
-                        title={counterpart.translate(
-                            "tooltip." +
-                                (includeAsset ? "hide_asset" : "show_asset")
-                        )}
-                    >
-                        <a
-                            style={{marginRight: 0}}
-                            className={
-                                includeAsset ? "order-cancel" : "action-plus"
-                            }
-                            onClick={this._hideAsset.bind(
-                                this,
-                                asset_type,
-                                includeAsset
-                            )}
-                        >
-                            <Icon
-                                name={
-                                    includeAsset
-                                        ? "cross-circle"
-                                        : "plus-circle"
-                                }
-                                title={
-                                    includeAsset
-                                        ? "icons.cross_circle.hide_asset"
-                                        : "icons.plus_circle.show_asset"
-                                }
-                                className="icon-14px"
-                            />
-                        </a>
-                    </Tooltip>
+                    <a />
+                    // <Tooltip
+                    //     placement="bottom"
+                    //     title={counterpart.translate(
+                    //         "tooltip." +
+                    //             (includeAsset ? "hide_asset" : "show_asset")
+                    //     )}
+                    // >
+                    //     <a
+                    //         style={{marginRight: 0}}
+                    //         className={
+                    //             includeAsset ? "order-cancel" : "action-plus"
+                    //         }
+                    //         onClick={this._hideAsset.bind(
+                    //             this,
+                    //             asset_type,
+                    //             includeAsset
+                    //         )}
+                    //     >
+                    //         <Icon
+                    //             name={
+                    //                 includeAsset
+                    //                     ? "cross-circle"
+                    //                     : "plus-circle"
+                    //             }
+                    //             title={
+                    //                 includeAsset
+                    //                     ? "icons.cross_circle.hide_asset"
+                    //                     : "icons.plus_circle.show_asset"
+                    //             }
+                    //             className="icon-14px"
+                    //         />
+                    //     </a>
+                    // </Tooltip>
                 )
             });
         });
@@ -1165,7 +1172,8 @@ class AccountPortfolioList extends React.Component {
                                 buy:
                                     canBuy && this.props.isMyAccount ? (
                                         <span>
-                                            <a
+                                            <a />
+                                            {/* <a
                                                 onClick={this._showDepositWithdraw.bind(
                                                     this,
                                                     "bridge_modal",
@@ -1178,7 +1186,7 @@ class AccountPortfolioList extends React.Component {
                                                     title="icons.dollar.buy"
                                                     className="icon-14px"
                                                 />
-                                            </a>
+                                            </a> */}
                                         </span>
                                     ) : (
                                         emptyCell
@@ -1186,7 +1194,8 @@ class AccountPortfolioList extends React.Component {
                                 deposit:
                                     canDeposit && this.props.isMyAccount ? (
                                         <span>
-                                            <Icon
+                                            <a />
+                                            {/* <Icon
                                                 style={{cursor: "pointer"}}
                                                 name="deposit"
                                                 title="icons.deposit.deposit"
@@ -1195,7 +1204,7 @@ class AccountPortfolioList extends React.Component {
                                                     this,
                                                     asset.get("symbol")
                                                 )}
-                                            />
+                                            /> */}
                                         </span>
                                     ) : (
                                         emptyCell
@@ -1229,7 +1238,8 @@ class AccountPortfolioList extends React.Component {
                                                     : "show_asset")
                                         )}
                                     >
-                                        <a
+                                        <a />
+                                        {/* <a
                                             style={{marginRight: 0}}
                                             className={
                                                 includeAsset
@@ -1255,7 +1265,7 @@ class AccountPortfolioList extends React.Component {
                                                 }
                                                 className="icon-14px"
                                             />
-                                        </a>
+                                        </a> */}
                                     </Tooltip>
                                 )
                             });

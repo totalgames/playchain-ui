@@ -367,24 +367,25 @@ class Asset extends React.Component {
 
         let {name, prefix} = utils.replaceName(originalAsset);
         return (
-            <div style={{overflow: "visible"}}>
-                <HelpContent
-                    path={"assets/" + asset.symbol}
-                    alt_path="assets/Asset"
-                    section="summary"
-                    symbol={(prefix || "") + name}
-                    description={desc}
-                    issuer={issuerName}
-                    hide_issuer="true"
-                />
-                {short_name ? <p>{short_name}</p> : null}
-                <Link
-                    className="button market-button"
-                    to={`/market/${asset.symbol}_${preferredMarket}`}
-                >
-                    <Translate content="exchange.market" />
-                </Link>
-            </div>
+            <div />
+            // <div style={{overflow: "visible"}}>
+            //     <HelpContent
+            //         path={"assets/" + asset.symbol}
+            //         alt_path="assets/Asset"
+            //         section="summary"
+            //         symbol={(prefix || "") + name}
+            //         description={desc}
+            //         issuer={issuerName}
+            //         hide_issuer="true"
+            //     />
+            //     {short_name ? <p>{short_name}</p> : null}
+            //     <Link
+            //         className="button market-button"
+            //         to={`/market/${asset.symbol}_${preferredMarket}`}
+            //     >
+            //         <Translate content="exchange.market" />
+            //     </Link>
+            // </div>
         );
     }
 
@@ -1940,7 +1941,7 @@ class Asset extends React.Component {
                                 </div>
                                 {priceFeedData ? priceFeedData : null}
                             </Tab>
-                            <Tab title="explorer.asset.actions">
+                            {/* <Tab title="explorer.asset.actions">
                                 <div
                                     className="grid-block vertical large-horizontal medium-up-1 large-up-2"
                                     style={{paddingTop: "1rem"}}
@@ -1956,7 +1957,7 @@ class Asset extends React.Component {
                                     {this.state.collateralBids.length > 0 &&
                                         this.renderCollateralBid(asset)}
                                 </div>
-                            </Tab>
+                            </Tab> */}
                         </Tabs>
                     </div>
                 </div>

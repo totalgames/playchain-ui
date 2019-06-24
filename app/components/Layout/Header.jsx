@@ -988,7 +988,7 @@ class Header extends React.Component {
                         className="header menu-group primary"
                         style={{flexWrap: "nowrap", justifyContent: "none"}}
                     >
-                        {__ELECTRON__ ? (
+                        {/* {__ELECTRON__ ? (
                             <div className="grid-block show-for-medium shrink electron-navigation">
                                 <ul className="menu-bar">
                                     <li>
@@ -1030,11 +1030,11 @@ class Header extends React.Component {
                                     </li>
                                 </ul>
                             </div>
-                        ) : null}
+                        ) : null} */}
 
                         <ul className="menu-bar">
                             <li>{dashboard}</li>
-                            {!currentAccount || !!createAccountLink ? null : (
+                            {/* {!currentAccount || !!createAccountLink ? null : (
                                 <li>
                                     <Link
                                         style={{flexFlow: "row"}}
@@ -1080,7 +1080,7 @@ class Header extends React.Component {
                                         />
                                     </Link>
                                 </li>
-                            )}
+                            )} */}
                             {/* <li>
                                 <a
                                     style={{flexFlow: "row"}}
@@ -1191,7 +1191,7 @@ class Header extends React.Component {
                     </div>
                 </div>
 
-                <div
+                {/* <div
                     className="truncated active-account"
                     style={{cursor: "pointer"}}
                 >
@@ -1311,7 +1311,7 @@ class Header extends React.Component {
                             />
                         )}
                     </div>
-                </div>
+                </div> */}
                 <SendModal
                     id="send_modal_header"
                     refCallback={e => {

@@ -118,12 +118,12 @@ class LoginSelector extends React.Component {
                             <img src={logo} />
                         </div> */}
 
-                        <div>
+                        {/* <div>
                             <Translate
                                 content="header.create_account"
                                 component="h4"
                             />
-                        </div>
+                        </div> */}
 
                         <div>
                             <Translate
@@ -160,7 +160,7 @@ class LoginSelector extends React.Component {
                             </div>
                         </div>
 
-                        <div className="grid-block account-login-options">
+                        {/* <div className="grid-block account-login-options">
                             <Link
                                 id="account_login_button"
                                 to="/create-account/password"
@@ -216,9 +216,9 @@ class LoginSelector extends React.Component {
                                     ]}
                                 />
                             </h5>
-                        </div>
+                        </div> */}
 
-                        <Route
+                        {/* <Route
                             path="/create-account/wallet"
                             exact
                             component={CreateAccount}
@@ -227,7 +227,7 @@ class LoginSelector extends React.Component {
                             path="/create-account/password"
                             exact
                             component={CreateAccountPassword}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

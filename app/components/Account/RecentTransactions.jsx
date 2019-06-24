@@ -381,7 +381,14 @@ class RecentTransactions extends React.Component {
                 "account_update",
                 "asset_create",
                 "witness_withdraw_pay",
-                "vesting_balance_withdraw"
+                "vesting_balance_withdraw",
+                "player_invitation_create",
+                "player_invitation_resolve",
+                "game_witness_create",
+                "buy_in_reserve",
+                "donate_to_playchain",
+                "table_create",
+                "room_update"
             ].map(type => {
                 return (
                     <Option value={type} key={type}>
@@ -498,24 +505,25 @@ class RecentTransactions extends React.Component {
                             ) : null}
 
                             {historyCount > 0 && this.props.dashboard ? (
-                                <Tooltip
-                                    placement="bottom"
-                                    title={counterpart.translate(
-                                        "transaction.csv_tip"
-                                    )}
-                                >
-                                    <a
-                                        className="inline-block iconLinkAndLabel"
-                                        onClick={this.showExportModal}
-                                        style={{
-                                            marginLeft: "1rem"
-                                        }}
-                                    >
-                                        <Icon name="excel" size="1x" />
-                                        <Translate content="account.download_history" />
-                                    </a>
-                                </Tooltip>
-                            ) : null}
+                                <a />
+                            ) : // <Tooltip
+                            //     placement="bottom"
+                            //     title={counterpart.translate(
+                            //         "transaction.csv_tip"
+                            //     )}
+                            // >
+                            //     <a
+                            //         className="inline-block iconLinkAndLabel"
+                            //         onClick={this.showExportModal}
+                            //         style={{
+                            //             marginLeft: "1rem"
+                            //         }}
+                            //     >
+                            //         <Icon name="excel" size="1x" />
+                            //         <Translate content="account.download_history" />
+                            //     </a>
+                            // </Tooltip>
+                            null}
                         </div>
                         {this.state.accountHistoryError && (
                             <div

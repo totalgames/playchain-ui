@@ -2187,7 +2187,8 @@
             "asset": "资产相关",
             "business": "业务管理",
             "general": "一般费率",
-            "market": "市场相关"
+            "market": "市场相关",
+            "playchain": "PlayChain Specific"
         },
         "feeTypes": {
             "_none": "免费",
@@ -2276,7 +2277,7 @@
             "player_create": "Player create",
             "game_witness_create": "Game witness create",
             "room_create": "Room create",
-            "update_create": "Room update",
+            "room_update": "Room update",
             "table_create": "Table create",
             "table_update": "Table update",
             "buy_in_table": "Buy in table",

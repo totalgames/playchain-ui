@@ -2181,7 +2181,8 @@
             "asset": "アセット固有",
             "business": "ビジネス管理",
             "general": "一般",
-            "market": "マーケット固有"
+            "market": "マーケット固有",
+            "playchain": "PlayChain Specific"
         },
         "feeTypes": {
             "_none": "無料",
@@ -2270,7 +2271,7 @@
             "player_create": "Player create",
             "game_witness_create": "Game witness create",
             "room_create": "Room create",
-            "update_create": "Room update",
+            "room_update": "Room update",
             "table_create": "Table create",
             "table_update": "Table update",
             "buy_in_table": "Buy in table",

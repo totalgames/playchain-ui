@@ -114,38 +114,38 @@ class Accounts extends React.Component {
                     return <div>{id}</div>;
                 }
             },
-            {
-                title: <Icon name="user" title="icons.user.account" />,
-                dataIndex: "accountContacts",
-                key: "accountContacts",
-                render: (contacts, record) => {
-                    return contacts.has(record.accountName) ? (
-                        <div
-                            onClick={this._onRemoveContact.bind(
-                                this,
-                                record.accountName
-                            )}
-                        >
-                            <Icon
-                                name="minus-circle"
-                                title="icons.minus_circle.remove_contact"
-                            />
-                        </div>
-                    ) : (
-                        <div
-                            onClick={this._onAddContact.bind(
-                                this,
-                                record.accountName
-                            )}
-                        >
-                            <Icon
-                                name="plus-circle"
-                                title="icons.plus_circle.add_contact"
-                            />
-                        </div>
-                    );
-                }
-            },
+            // {
+            //     title: <Icon name="user" title="icons.user.account" />,
+            //     dataIndex: "accountContacts",
+            //     key: "accountContacts",
+            //     render: (contacts, record) => {
+            //         return contacts.has(record.accountName) ? (
+            //             <div
+            //                 onClick={this._onRemoveContact.bind(
+            //                     this,
+            //                     record.accountName
+            //                 )}
+            //             >
+            //                 <Icon
+            //                     name="minus-circle"
+            //                     title="icons.minus_circle.remove_contact"
+            //                 />
+            //             </div>
+            //         ) : (
+            //             <div
+            //                 onClick={this._onAddContact.bind(
+            //                     this,
+            //                     record.accountName
+            //                 )}
+            //             >
+            //                 <Icon
+            //                     name="plus-circle"
+            //                     title="icons.plus_circle.add_contact"
+            //                 />
+            //             </div>
+            //         );
+            //     }
+            // },
             {
                 title: <Translate component="span" content="account.name" />,
                 dataIndex: "accountName",

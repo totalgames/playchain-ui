@@ -2181,7 +2181,8 @@
             "asset": "Aktife Özel",
             "business": "İş İdaresi",
             "general": "Genel",
-            "market": "Piyasaya Özel"
+            "market": "Piyasaya Özel",
+            "playchain": "PlayChain Specific"
         },
         "feeTypes": {
             "_none": "Ücretsiz",
@@ -2270,7 +2271,7 @@
             "player_create": "Player create",
             "game_witness_create": "Game witness create",
             "room_create": "Room create",
-            "update_create": "Room update",
+            "room_update": "Room update",
             "table_create": "Table create",
             "table_update": "Table update",
             "buy_in_table": "Buy in table",

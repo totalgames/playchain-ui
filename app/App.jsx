@@ -410,7 +410,7 @@ class App extends React.Component {
                                     path="/accounts"
                                     component={DashboardAccountsOnly}
                                 />
-                                <Route
+                                {/* <Route
                                     path="/market/:marketID"
                                     component={Exchange}
                                 />
@@ -429,8 +429,8 @@ class App extends React.Component {
                                     path="/deposit-withdraw"
                                     exact
                                     component={AccountDepositWithdraw}
-                                />
-                                <Route
+                                /> */}
+                                {/* <Route
                                     path="/create-account"
                                     component={LoginSelector}
                                 />
@@ -450,13 +450,13 @@ class App extends React.Component {
                                     exact
                                     component={AccountRegistration}
                                 />
-                                <Route path="/news" exact component={News} />
-                                <Redirect
+                                <Route path="/news" exact component={News} /> */}
+                                {/* <Redirect
                                     path={"/voting"}
                                     to={{
                                         pathname: `/account/${accountName}/voting`
                                     }}
-                                />
+                                /> */}
                                 {/* Explorer routes */}
                                 <Route
                                     path="/explorer/:tab"
@@ -477,7 +477,7 @@ class App extends React.Component {
                                     path="/block/:height/:txIndex"
                                     component={Block}
                                 />
-                                <Route path="/borrow" component={Borrow} />
+                                {/* <Route path="/borrow" component={Borrow} />
 
                                 <Route path="/barter" component={Barter} />
                                 <Route
@@ -488,10 +488,10 @@ class App extends React.Component {
                                 <Route
                                     path="/spotlight"
                                     component={ShowcaseGrid}
-                                />
+                                /> */}
 
                                 {/* Wallet backup/restore routes */}
-                                <Route
+                                {/* <Route
                                     path="/wallet"
                                     component={WalletManager}
                                 />
@@ -507,10 +507,10 @@ class App extends React.Component {
                                 <Route
                                     path="/create-worker"
                                     component={CreateWorker}
-                                />
+                                /> */}
 
                                 {/* Help routes */}
-                                <Route exact path="/help" component={Help} />
+                                {/* <Route exact path="/help" component={Help} />
                                 <Route
                                     exact
                                     path="/help/:path1"
@@ -525,8 +525,8 @@ class App extends React.Component {
                                     exact
                                     path="/help/:path1/:path2/:path3"
                                     component={Help}
-                                />
-                                <Route path="/htlc" component={Htlc} />
+                                /> */}
+                                {/* <Route path="/htlc" component={Htlc} /> */}
                                 <Route path="*" component={Page404} />
                             </Switch>
                         </div>
