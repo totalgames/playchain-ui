@@ -16,6 +16,7 @@ import InitError from "./components/InitError";
 import SyncError from "./components/SyncError";
 import counterpart from "counterpart";
 import LogsActions from "actions/LogsActions";
+import {initDefaultBlockchainAPI} from "branding";
 
 /*
 * Electron does not support browserHistory, so we need to use hashHistory.
@@ -48,6 +49,8 @@ class RootIntl extends React.Component {
 class AppInit extends React.Component {
     constructor() {
         super();
+
+        initDefaultBlockchainAPI();
 
         this.state = {
             apiConnected: false,

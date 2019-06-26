@@ -60,10 +60,20 @@ var options = {
     cert: fs.readFileSync("./ssl/server.crt")
 };
 
-http.createServer(app).listen(8080);
-https.createServer(options, app).listen(8085);
+if (process.env.PLAYCHAIN_TYPE === "mainnet") {
+    http.createServer(app).listen(8081);
+    https.createServer(options, app).listen(8086);
+    console.log(
+        "Listening at http://localhost:8081/ or https://localhost:8086/"
+    );
+} else {
+    http.createServer(app).listen(8082);
+    https.createServer(options, app).listen(8087);
+    console.log(
+        "Listening at http://localhost:8082/ or https://localhost:8087/"
+    );
+}
 
-console.log("Listening at http://localhost:8080/ or https://localhost:8085/");
 // new WebpackDevServer(compiler, {
 //     publicPath: config.output.publicPath,
 //     hot: true,

@@ -12,8 +12,8 @@ import {Switch, Button} from "bitshares-ui-style-guide";
 
 const autoSelectionUrl = "wss://fake.automatic-selection.com";
 
-function isTestNet(url) {
-    return !__TESTNET__ && url.indexOf("testnet") !== -1;
+function _isTestNet(url) {
+    return !!__TESTNET__;
 }
 
 /**
@@ -161,7 +161,7 @@ class ApiNode extends React.Component {
      * @private
      */
     _getPing() {
-        if (isTestNet(this.props.node.url)) {
+        if (_isTestNet(this.props.node.url)) {
             return {
                 toString: null,
                 color: null,
@@ -418,12 +418,12 @@ class AccessSettings extends React.Component {
     }
 
     _nodeIsPersonal(node) {
-        return !node.default && !node.hidden && !isTestNet(node.url);
+        return !node.default && !node.hidden && !_isTestNet(node.url);
     }
 
     _getMainNetNodes() {
         return this.props.nodes.filter(a => {
-            return !isTestNet(a.url);
+            return !_isTestNet(a.url);
         });
     }
 
@@ -497,11 +497,11 @@ class AccessSettings extends React.Component {
                 );
             })
             .sort(function(a, b) {
-                let isTestnet = isTestNet(a.url);
+                let _isTestNet = _isTestNet(a.url);
                 if (!!a.ping && !!b.ping) {
                     return a.ping - b.ping;
                 } else if (!a.ping && !b.ping) {
-                    if (isTestnet) return -1;
+                    if (_isTestNet) return -1;
                     return 1;
                 } else if (!!a.ping && !b.ping) {
                     return -1;
@@ -521,15 +521,15 @@ class AccessSettings extends React.Component {
                 this._connectedNodeIsPersonal() && nodesToShow.length === 0;
         } else if (this.state.activeTab === "available_nodes") {
             nodesToShow = allNodesExceptConnected.filter(node => {
-                return node.default && !node.hidden && !isTestNet(node.url);
+                return node.default && !node.hidden && !_isTestNet(node.url);
             });
         } else if (this.state.activeTab === "testnet_nodes") {
             nodesToShow = allNodesExceptConnected.filter(node => {
-                return isTestNet(node.url);
+                return _isTestNet(node.url);
             });
         } else {
             nodesToShow = allNodesExceptConnected.filter(node => {
-                return node.hidden && !isTestNet(node.url);
+                return node.hidden && !_isTestNet(node.url);
             });
         }
 

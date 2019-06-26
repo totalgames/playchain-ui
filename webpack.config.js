@@ -28,7 +28,8 @@ module.exports = function(env) {
         },
         {
             loader: "css-loader"
-        },
+        }
+        ,
         {
             loader: "postcss-loader"
         }
@@ -67,6 +68,15 @@ module.exports = function(env) {
         regexString = regexString + (l + (i < locales.length - 1 ? "|" : ""));
     });
     const localeRegex = new RegExp(regexString);
+
+    let playchain_api = !!process.env.PLAYCHAIN_API
+        ? process.env.PLAYCHAIN_API
+        : "localhost:8500";
+    let playchain_type = !!process.env.PLAYCHAIN_TYPE
+        ? process.env.PLAYCHAIN_TYPE
+        : "local";
+    let testnet = playchain_type !== "mainnet";
+
     var plugins = [
         new HtmlWebpackPlugin({
             template: "!!handlebars-loader!app/assets/index.hbs",
@@ -84,11 +94,13 @@ module.exports = function(env) {
             __HASH_HISTORY__: !!env.hash,
             __BASE_URL__: JSON.stringify(baseUrl),
             __UI_API__: JSON.stringify(env.apiUrl),
-            __TESTNET__: !!env.testnet,
             __DEPRECATED__: !!env.deprecated,
             DEFAULT_SYMBOL: "PLC",
             __GIT_BRANCH__: JSON.stringify(git.branch()),
-            __PERFORMANCE_DEVTOOL__: !!env.perf_dev
+            __PERFORMANCE_DEVTOOL__: !!env.perf_dev,
+            __TESTNET__: !!testnet,
+            __DEFAULT_PLAYCHAIN_API__: JSON.stringify(playchain_api),
+            __DEFAULT_PLAYCHAIN_TYPE__: JSON.stringify(playchain_type)
         }),
         new webpack.ContextReplacementPlugin(
             /moment[\/\\]locale$/,
@@ -122,8 +134,8 @@ module.exports = function(env) {
         // WRAP INTO CSS FILE
         cssLoaders = [
             {loader: MiniCssExtractPlugin.loader},
-            {loader: "css-loader"},
-            {
+            {loader: "css-loader"}
+            ,{
                 loader: "postcss-loader",
                 options: {
                     minimize: true,
@@ -157,6 +169,10 @@ module.exports = function(env) {
                 filename: "[name].[contenthash].css"
             })
         );
+
+        // plugins.push(require("postcss-import"));
+        // plugins.push(require("precss"));
+        // plugins.push(require("cssnano"));
     } else {
         plugins.push(
             new webpack.DefinePlugin({

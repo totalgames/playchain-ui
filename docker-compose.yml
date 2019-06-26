@@ -4,19 +4,20 @@ volumes:
 
 services:
     web-wallet-prod:
-        build: .
+        build:
+            context: .
+            args:
+                - LIVE_TESTNET=OFF  
         image: playchain-web-wallet-prod
-        environment:
-            - PLAYCHAIN=prod
         ports:
             - "8081:80"
         mem_limit: 1g
-
-# web-wallet-stage:
-#     build: .
-#     image: playchain-web-wallet-stage
-#     environment:
-#         - PLAYCHAIN=stage
-#     ports:
-#         - "8082:80"
-#     mem_limit: 1g
+    web-wallet-stage:
+        build:
+            context: .
+            args:
+                - LIVE_TESTNET=ON
+        image: playchain-web-wallet-stage
+        ports:
+            - "8082:80"
+        mem_limit: 1g

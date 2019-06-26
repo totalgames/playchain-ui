@@ -1,6 +1,10 @@
 # FROM node:10.16.0-stretch
 FROM node:9.11.2-stretch
 
+ARG LIVE_TESTNET
+
+ENV LIVE_TESTNET=${LIVE_TESTNET:-OFF}
+
 # Install nginx
 RUN apt-get update \
   && apt-get install -y nginx --no-install-recommends \
@@ -13,10 +17,10 @@ RUN npm install -g cross-env
 ADD . /playchain-ui
 WORKDIR /playchain-ui
 
-# !!! There are some version errors in package
-# Required npm install on host machine before (Ubuntu 18.04)
+# !!! There are errors when we recreate node_modules on node:9.11.2-stretch
 # RUN rm -rf node_modules \
-#   && cross-env npm install --env.prod
+#    && cross-env npm install --env.prod
+RUN cross-env npm install --env.prod
 
 EXPOSE 80
 

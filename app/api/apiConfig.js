@@ -1,8 +1,4 @@
-import {
-    initDefaultBlockchainAPI,
-    getDefaultBlockchainAPI,
-    getFaucet
-} from "../branding";
+import {getDefaultBlockchainAPI, getFaucet} from "../branding";
 
 export const blockTradesAPIs = {
     BASE: "https://api.blocktrades.us/v2",
@@ -94,8 +90,6 @@ export const nodeRegions = [
     "Eastern Europe",
     "Southeastern Asia"
 ];
-
-initDefaultBlockchainAPI();
 
 export const settingsAPIs = {
     // If you want a location to be translated, add the translation to settings in locale-xx.js

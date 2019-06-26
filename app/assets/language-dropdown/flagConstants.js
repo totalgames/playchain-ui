@@ -2,7 +2,7 @@ export const languages = [
     {flag: "us", language: "English"},
     {flag: "zh", language: "Chinese"},
     {flag: "fr", language: "French"},
-    {flag: "kr", language: "Korean"},
+    {flag: "ko", language: "Korean"},
     {flag: "de", language: "German"},
     {flag: "es", language: "Spanish"},
     {flag: "tr", language: "Turkish"},

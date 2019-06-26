@@ -12,10 +12,7 @@ import chainIds from "chain/chainIds";
  * @private
  */
 function _isTestnet() {
-    const api = getDefaultBlockchainAPI();
-
-    let r = api.short_chain_id === chainIds.MAIN_NET_ID;
-    return !r;
+    return !!__TESTNET__;
 }
 
 /**
@@ -398,8 +395,6 @@ export function getHeadFeedAsset() {
  * Setup default API and symbol
  */
 export function initDefaultBlockchainAPI() {
-    console.log(">> ENV: ", process.env);
-
     const plc_id = "PLC";
     const api = getDefaultBlockchainAPI();
 
@@ -434,27 +429,9 @@ export function initDefaultBlockchainAPI() {
 }
 
 export function getDefaultBlockchainAPI() {
-    if (process.env.NODE_ENV === "production") {
-        let url_ = "ws://playchain.prod.totalpoker.io:8500";
-        if (process.env.PLC_MAINNET_URL) {
-            url_ = process.env.PLC_MAINNET_URL;
-        }
-        return {
-            url: url_,
-            location: "MAINNET",
-            chain_id: chainIds.MAIN_NET,
-            short_chain_id: chainIds.MAIN_NET_ID
-        };
-    } else {
-        let url_ = "ws://playchain.stage.totalpoker.io:8500";
-        if (process.env.PLC_TESTNET_URL) {
-            url_ = process.env.PLC_TESTNET_URL;
-        }
-        return {
-            url: url_,
-            location: "TESTNET",
-            chain_id: chainIds.TEST_NET,
-            short_chain_id: chainIds.TEST_NET_ID
-        };
-    }
+    return {
+        url: "ws://" + __DEFAULT_PLAYCHAIN_API__,
+        location: __DEFAULT_PLAYCHAIN_TYPE__,
+        chain_id: _isTestnet() ? chainIds.TEST_NET : chainIds.MAIN_NET
+    };
 }
