@@ -1,9 +1,7 @@
 # FROM node:10.16.0-stretch
 FROM node:9.11.2-stretch
 
-ARG LIVE_TESTNET
-
-ENV LIVE_TESTNET=${LIVE_TESTNET:-OFF}
+ARG PLAYCHAIN
 
 # Install nginx
 RUN apt-get update \
@@ -21,13 +19,15 @@ WORKDIR /playchain-ui
 # RUN rm -rf node_modules \
 #    && cross-env npm install --env.prod
 RUN cross-env npm install --env.prod
+RUN npm run build-${PLAYCHAIN}
 
 EXPOSE 80
 
 ## Copying default configuration
 ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD conf/start.sh /start.sh
-RUN chmod a+x /start.sh
+RUN cp -r /playchain-ui/build/dist/* /var/www/ \
+    && chmod a+x /start.sh
 
 ## Entry point
 ENTRYPOINT ["/start.sh"]

@@ -28,8 +28,7 @@ module.exports = function(env) {
         },
         {
             loader: "css-loader"
-        }
-        ,
+        },
         {
             loader: "postcss-loader"
         }
@@ -134,25 +133,25 @@ module.exports = function(env) {
         // WRAP INTO CSS FILE
         cssLoaders = [
             {loader: MiniCssExtractPlugin.loader},
+            // {
+            //     loader: "postcss-loader",
+            //     options: {
+            //         minimize: true,
+            //         debug: false
+            //     }
+            // },
             {loader: "css-loader"}
-            ,{
-                loader: "postcss-loader",
-                options: {
-                    minimize: true,
-                    debug: false
-                }
-            }
         ];
         scssLoaders = [
             {loader: MiniCssExtractPlugin.loader},
             {loader: "css-loader"},
-            {
-                loader: "postcss-loader",
-                options: {
-                    minimize: true,
-                    debug: false
-                }
-            },
+            // {
+            //     loader: "postcss-loader",
+            //     options: {
+            //         minimize: true,
+            //         debug: false
+            //     }
+            // },
             {loader: "sass-loader", options: {outputStyle: "expanded"}}
         ];
 
@@ -160,7 +159,6 @@ module.exports = function(env) {
         plugins.push(new Clean(cleanDirectories, {root: root_dir}));
         plugins.push(
             new webpack.DefinePlugin({
-                "process.env": {NODE_ENV: JSON.stringify("production")},
                 __DEV__: false
             })
         );
@@ -170,9 +168,6 @@ module.exports = function(env) {
             })
         );
 
-        // plugins.push(require("postcss-import"));
-        // plugins.push(require("precss"));
-        // plugins.push(require("cssnano"));
     } else {
         plugins.push(
             new webpack.DefinePlugin({

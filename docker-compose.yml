@@ -7,17 +7,17 @@ services:
         build:
             context: .
             args:
-                - LIVE_TESTNET=OFF  
+                - PLAYCHAIN=prod
         image: playchain-web-wallet-prod
         ports:
             - "8081:80"
-        mem_limit: 1g
+        mem_limit: 2g
     web-wallet-stage:
         build:
             context: .
             args:
-                - LIVE_TESTNET=ON
+                - PLAYCHAIN=stage
         image: playchain-web-wallet-stage
         ports:
             - "8082:80"
-        mem_limit: 1g
+        mem_limit: 2g
