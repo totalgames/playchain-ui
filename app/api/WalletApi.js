@@ -26,7 +26,7 @@ const WalletApi = {
             annotate: true
         });
         // visual
-        console.error(JSON.stringify(object, null, 4));
+        __DEV__ ? console.error(JSON.stringify(object, null, 4)) : {};
 
         // usable
         object = TransactionHelper.template(transaction_object_name, {
@@ -34,7 +34,7 @@ const WalletApi = {
             annotate: false
         });
         // visual
-        console.error(JSON.stringify(object));
+        __DEV__ ? console.error(JSON.stringify(object)) : {};
         return object;
     },
 

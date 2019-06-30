@@ -210,6 +210,8 @@ class Header extends React.Component {
             });
         }
 
+        (__DEV__) ? console.log(">> route to ", route): {};
+
         this.props.history.push(route);
         this._closeDropdown();
     }
@@ -343,7 +345,7 @@ class Header extends React.Component {
         let tradingAccounts = AccountStore.getMyAccounts();
         let maxHeight = Math.max(40, height - 67 - 36) + "px";
 
-        console.log(">> ChainStore: ", ChainStore);
+        __DEV__ ? console.log(">> ChainStore: ", ChainStore) : {};
 
         const a = ChainStore.getAccount(currentAccount);
         const showAccountLinks = !!a;

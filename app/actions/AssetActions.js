@@ -214,16 +214,18 @@ class AssetActions {
         description
     ) {
         // Create asset action here...
-        console.log(
-            "create asset:",
-            createObject,
-            "flags:",
-            flags,
-            "isBitAsset:",
-            isBitAsset,
-            "bitasset_opts:",
-            bitasset_opts
-        );
+        if (__DEV__) {
+            console.log(
+                "create asset:",
+                createObject,
+                "flags:",
+                flags,
+                "isBitAsset:",
+                isBitAsset,
+                "bitasset_opts:",
+                bitasset_opts
+            );
+        }
         let tr = WalletApi.new_transaction();
         let precision = utils.get_asset_precision(createObject.precision);
 
@@ -396,12 +398,14 @@ class AssetActions {
             tr.add_type_operation("asset_update", updateObject);
         }
 
-        console.log(
-            "bitasset_opts:",
-            bitasset_opts,
-            "original_bitasset_opts:",
-            original_bitasset_opts
-        );
+        if (__DEV__) {
+            console.log(
+                "bitasset_opts:",
+                bitasset_opts,
+                "original_bitasset_opts:",
+                original_bitasset_opts
+            );
+        }
         if (
             isBitAsset &&
             (bitasset_opts.feed_lifetime_sec !==
@@ -433,12 +437,14 @@ class AssetActions {
             );
         }
 
-        console.log(
-            "feedProducers:",
-            feedProducers,
-            "originalFeedProducers:",
-            originalFeedProducers
-        );
+        if (__DEV__) {
+            console.log(
+                "feedProducers:",
+                feedProducers,
+                "originalFeedProducers:",
+                originalFeedProducers
+            );
+        }
         if (
             isBitAsset &&
             !utils.are_equal_shallow(feedProducers, originalFeedProducers)
@@ -456,7 +462,7 @@ class AssetActions {
 
         return WalletDb.process_transaction(tr, null, true)
             .then(result => {
-                console.log("asset create result:", result);
+                __DEV__ ? console.log("asset create result:", result) : {};
                 // this.dispatch(account_id);
                 return true;
             })

@@ -27,7 +27,7 @@ const Router = __HASH_HISTORY__ ? HashRouter : BrowserRouter;
 
 class RootIntl extends React.Component {
     componentWillMount() {
-        console.log(">> this.props: ", this.props);
+        __DEV__ ? console.log(">> this.props: ", this.props) : {};
         IntlActions.switchLocale(this.props.locale);
     }
 

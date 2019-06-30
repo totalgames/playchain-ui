@@ -88,8 +88,6 @@ class AccountActions {
                     propose_account,
                     fee_asset_id
                 }).then(result => {
-                    // console.log( "transfer result: ", result )
-
                     dispatch(result);
                 });
             };

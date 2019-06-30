@@ -9,15 +9,6 @@ services:
             args:
                 - PLAYCHAIN=prod
         image: playchain-web-wallet-prod
-        ports:
-            - "8081:80"
+        network_mode: host
         mem_limit: 2g
-    web-wallet-stage:
-        build:
-            context: .
-            args:
-                - PLAYCHAIN=stage
-        image: playchain-web-wallet-stage
-        ports:
-            - "8082:80"
-        mem_limit: 2g
+

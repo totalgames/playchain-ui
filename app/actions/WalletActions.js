@@ -68,19 +68,21 @@ class WalletActions {
             "memo",
             password
         );
-        console.log("create account:", account_name);
-        console.log(
-            "new active pubkey",
-            active_private.toPublicKey().toPublicKeyString()
-        );
-        console.log(
-            "new owner pubkey",
-            owner_private.toPublicKey().toPublicKeyString()
-        );
-        console.log(
-            "new memo pubkey",
-            memo_private.toPublicKey().toPublicKeyString()
-        );
+        if (__DEV__) {
+            console.log("create account:", account_name);
+            console.log(
+                "new active pubkey",
+                active_private.toPublicKey().toPublicKeyString()
+            );
+            console.log(
+                "new owner pubkey",
+                owner_private.toPublicKey().toPublicKeyString()
+            );
+            console.log(
+                "new memo pubkey",
+                memo_private.toPublicKey().toPublicKeyString()
+            );
+        }
 
         return new Promise((resolve, reject) => {
             let create_account = () => {

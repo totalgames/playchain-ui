@@ -382,7 +382,7 @@ class Footer extends React.Component {
 
         let block_height = this.props.dynGlobalObject.get("head_block_number");
 
-        console.log(">> APP_VERSION: ", APP_VERSION);
+        __DEV__ ? console.log(">> APP_VERSION: ", APP_VERSION) : {};
 
         let version_match = APP_VERSION.match(/1\.0\.(\d\w+)/);
         let version = version_match
@@ -722,14 +722,14 @@ class Footer extends React.Component {
                         }
                     </div>
                 </div>
-                <div
+                {/* <div
                     className="introjs-launcher show-for-small-only"
                     onClick={() => {
                         this.launchIntroJS();
                     }}
                 >
                     <Translate content="global.help" />
-                </div>
+                </div> */}
                 <ReportModal
                     showModal={this._showReportModal}
                     hideModal={this._hideReportModal}

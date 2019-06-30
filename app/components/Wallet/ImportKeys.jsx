@@ -73,7 +73,7 @@ class ImportKeys extends Component {
     }
 
     onWif(event) {
-        console.log(">> onWif");
+        __DEV__ ? console.log(">> onWif") : {};
         event.preventDefault();
         let value = this.refs.wifInput.value;
         this.addByPattern(value);

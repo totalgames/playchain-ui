@@ -18,7 +18,7 @@ class WalletUnlockStore {
         // can't use settings store due to possible initialization race conditions
         const storedSettings = ss.get("settings_v4", {});
 
-        console.log(">> storedSettings: ", storedSettings);
+        __DEV__ ? console.log(">> storedSettings: ", storedSettings) : {};
 
         if (storedSettings.passwordLogin === undefined) {
             storedSettings.passwordLogin = false;

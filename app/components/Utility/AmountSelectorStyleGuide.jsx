@@ -57,7 +57,7 @@ class AmountSelector extends DecimalChecker {
     }
 
     render() {
-        console.log(">> AmountSelector render");
+        __DEV__ ? console.log(">> AmountSelector render") : {};
 
         let value = this.props.error
             ? counterpart.translate(this.props.error)

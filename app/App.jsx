@@ -287,7 +287,7 @@ class App extends React.Component {
             }.bind(this)
         );
         // this.setState({incognito: true});
-        updateGatewayBackers();
+        // updateGatewayBackers();
     }
 
     componentDidUpdate(prevProps) {

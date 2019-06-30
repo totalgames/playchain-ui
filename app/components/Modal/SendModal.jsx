@@ -43,7 +43,7 @@ class SendModal extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log(">> props: ", props);
+        __DEV__ ? console.log(">> props: ", props) : {};
 
         this.state = this.getInitialState(props);
         this.nestedRef = null;
@@ -204,12 +204,14 @@ class SendModal extends React.Component {
             this.props.asset_id &&
             this.state.asset_id !== this.props.asset_id
         ) {
-            console.log(">> _initForm: asset_id = ", this.props.asset_id);
-            console.log(">> _initForm: undefined = ", undefined);
+            __DEV__
+                ? console.log(">> _initForm: asset_id = ", this.props.asset_id)
+                : {};
+            __DEV__ ? console.log(">> _initForm: undefined = ", undefined) : {};
 
             let asset = ChainStore.getAsset(this.props.asset_id);
 
-            console.log(">> _initForm: asset = ", asset);
+            __DEV__ ? console.log(">> _initForm: asset = ", asset) : {};
 
             if (asset) {
                 this.setState({
@@ -271,7 +273,7 @@ class SendModal extends React.Component {
     }
 
     _checkBalance() {
-        console.log(">> _checkBalance");
+        __DEV__ ? console.log(">> _checkBalance") : {};
         const {feeAmount, amount, from_account, asset} = this.state;
         if (!asset || !from_account) return;
         this._updateFee();
@@ -302,7 +304,7 @@ class SendModal extends React.Component {
     }
 
     _checkFeeStatus(state = this.state) {
-        console.log(">> _checkFeeStatus");
+        __DEV__ ? console.log(">> _checkFeeStatus") : {};
         let {from_account, open} = state;
         if (!from_account || !open) return;
 
@@ -402,7 +404,7 @@ class SendModal extends React.Component {
     }
 
     _updateFee(state = this.state) {
-        console.log(">> _updateFee");
+        __DEV__ ? console.log(">> _updateFee") : {};
         if (!state.open) return;
         let {fee_asset_id, from_account, asset_id} = state;
         const {fee_asset_types} = this._getAvailableAssets(state);
@@ -463,7 +465,7 @@ class SendModal extends React.Component {
     }
 
     onAmountChanged({amount, asset}) {
-        console.log(">> onAmountChanged: ", amount, asset);
+        __DEV__ ? console.log(">> onAmountChanged: ", amount, asset) : {};
 
         if (!asset) return;
 
@@ -669,14 +671,6 @@ class SendModal extends React.Component {
         );
         const isAmountValid = amountValue && !isNaN(amountValue);
 
-        console.log(">> from_account: ", from_account);
-        console.log(">> to_account: ", to_account);
-        console.log(">> isAmountValid: ", isAmountValid);
-        console.log(">> asset: ", asset);
-        console.log(">> from_error: ", from_error);
-        console.log(">> propose_incomplete: ", propose_incomplete);
-        console.log(">> balanceError: ", balanceError);
-
         const isSubmitNotValid =
             !from_account ||
             !to_account ||
@@ -689,7 +683,7 @@ class SendModal extends React.Component {
 
         let tabIndex = this.props.tabIndex; // Continue tabIndex on props count
 
-        console.log(">> return");
+        __DEV__ ? console.log(">> return") : {};
 
         return !this.state.open ? null : (
             <div

@@ -903,8 +903,6 @@ class AccountPortfolioList extends React.Component {
                 settlePriceTitle = "tooltip.settle";
             }
 
-            // console.log(">> preferredUnit: ", preferredUnit)
-
             let preferredAsset = ChainStore.getAsset(preferredUnit);
             this.valueRefs[asset.get("symbol")] =
                 hasBalance && !!preferredAsset

@@ -398,7 +398,7 @@ export function initDefaultBlockchainAPI() {
     const plc_id = "PLC";
     const api = getDefaultBlockchainAPI();
 
-    console.log(">> ChainConfig: ", ChainConfig);
+    __DEV__ ? console.log(">> ChainConfig: ", ChainConfig) : {};
 
     let playchain_config_found = Object.entries(ChainConfig.networks).find(
         ([network_name, network]) => {
@@ -419,18 +419,20 @@ export function initDefaultBlockchainAPI() {
         ChainConfig.address_prefix = plc_id;
         ChainConfig.core_asset = plc_id;
 
-        console.log(">> New ChainConfig: ", ChainConfig);
+        __DEV__ ? console.log(">> New ChainConfig: ", ChainConfig) : {};
     }
 
-    console.log(
-        ">> Apis.instance().chain_id: ",
-        Apis.instance(api.url).chain_id
-    );
+    if (__DEV__) {
+        console.log(
+            ">> Apis.instance().chain_id: ",
+            Apis.instance(api.url).chain_id
+        );
+    }
 }
 
 export function getDefaultBlockchainAPI() {
     return {
-        url: "ws://" + __DEFAULT_PLAYCHAIN_API__,
+        url: __DEFAULT_PLAYCHAIN_API__,
         location: __DEFAULT_PLAYCHAIN_TYPE__,
         chain_id: _isTestnet() ? chainIds.TEST_NET : chainIds.MAIN_NET
     };

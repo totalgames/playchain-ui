@@ -2,7 +2,7 @@ Please work off the develop branch and make pull requests to that branch. The ma
 
 The Bitshares UI team is supported by this [worker proposal](https://www.bitshares.foundation/workers/2019-02-bitshares-ui). It provides the funds needed to pay for the development team and the community bounties.
 
-If you would like to get involved, we have a [Telegram chatroom](https://t.me/BitSharesDEX) where you can ask questions and get help. You may also join [BitShares on Discord](https://discord.gg/GsjQfAJ)
+If you would like to get involved, we have a [Telegram chatroom](https://t.me/BitSharesDEX) where you can ask questions and get help. You may also join [PlayChain on Discord](https://discord.gg/GsjQfAJ)
 
 ## Development process
 

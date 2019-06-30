@@ -7,7 +7,92 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome localhost",
+            "name": "PROD Chrome",
+            "url": "http://localhost:8081",
+            "webRoot": "${workspaceFolder}/app",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*",
+                "webpack:///../app/*": "${webRoot}/*",
+                "webpack:///../../app/*": "${webRoot}/*",
+                "webpack:///../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../../app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "STAGE Chrome",
+            "url": "http://localhost:8082",
+            "webRoot": "${workspaceFolder}/app",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*",
+                "webpack:///../app/*": "${webRoot}/*",
+                "webpack:///../../app/*": "${webRoot}/*",
+                "webpack:///../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../../app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "PROD SSL Chrome",
+            "url": "http://localhost:8086",
+            "webRoot": "${workspaceFolder}/app",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*",
+                "webpack:///../app/*": "${webRoot}/*",
+                "webpack:///../../app/*": "${webRoot}/*",
+                "webpack:///../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../../app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "STAGE SSL Chrome",
+            "url": "http://localhost:8087",
+            "webRoot": "${workspaceFolder}/app",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*",
+                "webpack:///../app/*": "${webRoot}/*",
+                "webpack:///../../app/*": "${webRoot}/*",
+                "webpack:///../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../../app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "PROD Firefox",
+            "url": "http://localhost:8081",
+            "webRoot": "${workspaceFolder}/app",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*",
+                "webpack:///../app/*": "${webRoot}/*",
+                "webpack:///../../app/*": "${webRoot}/*",
+                "webpack:///../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../../app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "STAGE Firefox",
             "url": "http://localhost:8082",
             "webRoot": "${workspaceFolder}/app",
             "sourceMaps": true,
@@ -24,8 +109,25 @@
         {
             "type": "firefox",
             "request": "launch",
-            "name": "Launch Firefox localhost",
-            "url": "http://localhost:8082",
+            "name": "PROD SSL Firefox",
+            "url": "http://localhost:8086",
+            "webRoot": "${workspaceFolder}/app",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*",
+                "webpack:///../app/*": "${webRoot}/*",
+                "webpack:///../../app/*": "${webRoot}/*",
+                "webpack:///../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../app/*": "${webRoot}/*",
+                "webpack:///../../../../../app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "STAGE SSL Firefox",
+            "url": "http://localhost:8087",
             "webRoot": "${workspaceFolder}/app",
             "sourceMaps": true,
             "sourceMapPathOverrides": {

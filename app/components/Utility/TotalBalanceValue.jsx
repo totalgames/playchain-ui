@@ -318,8 +318,6 @@ class ValueStoreWrapper extends React.Component {
     render() {
         let preferredUnit = this.props.settings.get("unit") || "1.3.0";
 
-        // console.log(">> preferredUnit: ", preferredUnit);
-
         return <TotalValue {...this.props} toAsset={preferredUnit} />;
     }
 }

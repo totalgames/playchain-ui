@@ -69,7 +69,9 @@ const ApplicationApi = {
                     broadcast
                 )
                     .then(res => {
-                        console.log("process_transaction then", res);
+                        __DEV__
+                            ? console.log("process_transaction then", res)
+                            : {};
                         resolve();
                     })
                     .catch(err => {

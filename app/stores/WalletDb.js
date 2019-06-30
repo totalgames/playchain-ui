@@ -262,7 +262,7 @@ class WalletDb extends BaseStore {
         unlock = false,
         public_name = "default"
     ) {
-        console.log(">> onCreateWallet: ", password_plaintext);
+        __DEV__ ? console.log(">> onCreateWallet: ", password_plaintext) : {};
 
         let walletCreateFct = dictionary => {
             return new Promise((resolve, reject) => {
@@ -317,7 +317,9 @@ class WalletDb extends BaseStore {
                     .toPublicKey()
                     .toPublicKeyString();
 
-                console.log(">> password_pubkey: ", password_pubkey);
+                __DEV__
+                    ? console.log(">> password_pubkey: ", password_pubkey)
+                    : {};
 
                 let wallet = {
                     public_name,

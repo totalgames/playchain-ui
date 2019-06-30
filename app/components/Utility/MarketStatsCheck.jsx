@@ -80,8 +80,6 @@ class MarketStatsCheck extends React.Component {
             this.updatesTimer = null;
         }, 10 * 1000);
 
-        // console.log(">> props: ", props);
-
         let {coreAsset, fromAssets, fromAsset, toAsset} = props;
         if (!fromAssets && fromAsset) fromAssets = [fromAsset];
 
